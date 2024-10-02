@@ -47,11 +47,15 @@
       function toggleDialog() {
         
         container.inert = !(container.inert);
-        myDialog.classList.toggle('hidden');
-        if (!(myDialog.classList.contains('hidden'))) {
+        // myDialog.classList.toggle('hidden');
+        // if (!(myDialog.classList.contains('hidden'))) {
+        //   closer.focus();
+        // }
+        if (myDialog.classList.contains('hidden')) {
+          myDialog.classList.remove('hidden');
           closer.focus();
         } else {
-          // closer.parentNode.remove();
+          myDialog.remove();
         }
       }
     </script>
