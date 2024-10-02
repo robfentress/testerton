@@ -50,6 +50,7 @@
       rm = document.querySelector("#rm");
       rm.addEventListener('click', removeButton);
       function removeButton(evt) {
+        evt.target.previousSibling.remove();
         evt.target.remove();
         console.log(evt);
       }
