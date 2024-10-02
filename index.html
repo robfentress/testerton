@@ -48,7 +48,12 @@
         
         container.inert = !(container.inert);
         myDialog.classList.toggle('hidden');
-        if (!(myDialog.classList.contains('hidden'))) {closer.focus()};
+        if (!(myDialog.classList.contains('hidden'))) {
+          closer.focus();
+        } else {
+          closer.parentNode.remove();
+        }
+          ;
       }
     </script>
   </body>
