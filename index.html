@@ -25,7 +25,7 @@
   <body>
     <div class="container">
       <h1>Dialog box (from <a href="https://en.wikipedia.org/wiki/Dialog_box">Wikipedia</a>)</h1>
-      <button onclick="toggleDialog()" id="opener">open dialog</button>
+      <button onclick="toggleDialog(this)" id="opener">open dialog</button>
       <p>In computing, a dialog box[a] (also simply dialog) is a graphical control element in the form of a small window that communicates information to the user and prompts them for a response.</p>
       <button>after first paragraph</button>
       <p>Dialog boxes are classified as "modal" or "modeless", depending on whether they block interaction with the software that initiated the dialog. The type of dialog box displayed is dependent upon the desired user interaction.</p>
@@ -34,7 +34,7 @@
       <button>after second paragraph</button>
     </div>
     <div role="dialog" arial-labelledby="heading" class="hidden">
-      <button onclick="toggleDialog()" id="closer">Close</button>
+      <button onclick="toggleDialog(this)" id="closer">Close</button>
       <h1 id="heading">My Dialog</h1>
       <p id="desc">text inside dialog</p>
     </div>
