@@ -49,6 +49,7 @@
       rm = document.querySelector("#rm");
       rm.addEventListener('click', removeButton);
       function removeButton(evt) {
+        evt.target.previousElementSibling.previousElementSibling.remove();
         evt.target.previousElementSibling.remove();
         evt.target.remove();
         console.log(evt);
