@@ -14,6 +14,9 @@
       .hidden {
         display: none;
       }
+      .container {
+        width: 100px;
+      }
       button:focus-visible, button:focus {
         outline: 2;
       }
@@ -45,7 +48,7 @@
         
         container.inert = !(container.inert);
         myDialog.classList.toggle('hidden');
-        if (element.classList.contains(className)) closer.focus();
+        if (!(element.classList.contains('hidden'))) closer.focus();
       }
     </script>
   </body>
