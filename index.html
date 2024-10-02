@@ -44,8 +44,8 @@
       let myDialog = document.querySelector('[role="dialog"]');
       let opener = document.querySelector('#opener');
       let closer = document.querySelector('#closer');
-      opener.addEventListener('click', () => toggleDialog());
-      closer.addEventListener('click', () => toggleDialog());
+      opener.addEventListener('click', () => toggleDialog);
+      closer.addEventListener('click', () => toggleDialog);
       function toggleDialog(evt) {
         console.log(evt);
         
