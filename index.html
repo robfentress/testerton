@@ -29,8 +29,7 @@
       <p>In computing, a dialog box[a] (also simply dialog) is a graphical control element in the form of a small window that communicates information to the user and prompts them for a response.</p>
       <button>after first paragraph</button>
       <p>Dialog boxes are classified as "modal" or "modeless", depending on whether they block interaction with the software that initiated the dialog. The type of dialog box displayed is dependent upon the desired user interaction.</p>
-      <button>a</button><button>b</button>
-      <button id="rm">after second paragraph</button><button>c</button><button>d</button>
+      <button>a</button><button>b</button><button id="rm">after second paragraph</button><button>c</button><button>d</button>
       <p>The simplest type of dialog box is the alert, which displays a message and may require an acknowledgment that the message has been read, usually by clicking "OK", or a decision as to whether or not an action should proceed, by clicking "OK" or "Cancel". Alerts are also used to display a "termination notice"—sometimes requesting confirmation that the notice has been read—in the event of either an intentional closing or unintentional closing ("crash") of an application or the operating system. (E.g., "Gedit has encountered an error and must close.") Although this is a frequent interaction pattern for modal dialogs, it is also criticized by usability experts as being ineffective for its intended use, which is to protect against errors caused by destructive actions,[2] and for which better alternatives exist.[3]</p>
       <button>after second paragraph</button>
     </div>
@@ -50,7 +49,7 @@
       rm = document.querySelector("#rm");
       rm.addEventListener('click', removeButton);
       function removeButton(evt) {
-        evt.target.previousSibling.remove();
+        evt.target.previousElementSibling.remove();
         evt.target.remove();
         console.log(evt);
       }
