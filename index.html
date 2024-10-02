@@ -44,7 +44,8 @@
       let myDialog = document.querySelector('[role="dialog"]');
       let opener = document.querySelector('#opener');
       let closer = document.querySelector('#closer');
-      function toggleDialog() {
+      function toggleDialog(evt) {
+        console.log(evt);
         
         container.inert = !(container.inert);
         // myDialog.classList.toggle('hidden');
