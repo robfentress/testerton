@@ -50,15 +50,19 @@
       rm.addEventListener('click', removeButton);
       function removeButton(evt) {
         evt.target.remove();
+        console.log(evt);
       }
       function toggleDialog(evt) {
         console.log(evt);
         
         container.inert = !(container.inert);
+        // If you just hide the dialog, then the SFNSP is the start of the document
         // myDialog.classList.toggle('hidden');
         // if (!(myDialog.classList.contains('hidden'))) {
         //   closer.focus();
         // }
+
+        // If you remove it, the SFNSP is the end of the document
         if (myDialog.classList.contains('hidden')) {
           myDialog.classList.remove('hidden');
           closer.focus();
