@@ -1,0 +1,286 @@
+body {
+    color:#000;
+}
+.gold-bg {
+    background-color: #9D987B;
+}
+
+.bg-maroon {
+    background-color: #861f41!important;
+}
+
+.pale-blue-bg {
+    background-color: #aac5d4;
+}
+
+header {
+    border: 5px solid white;
+}
+
+
+.navbar-dark .navbar-nav .nav-link, .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+    color: rgba(255, 255, 255, 1);
+}
+.navbar-dark .navbar-brand:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: #212529;
+}
+
+#main {
+    background-color: #F5F5EC;
+}
+
+.lessons-menu {
+    border-bottom: 5px solid white;
+}
+
+.lessons-menu .nav-link {
+    border-bottom: 1px solid rgba(255, 255, 255, .8);
+}
+
+@media (min-width: 992px) {
+    #main {
+        border-left: 5px solid white;
+    }
+    .lessons-menu {
+        border:none;
+    }
+}
+a:hover, .breadcrumb a, .nav-link:hover {
+    text-decoration:underline;    
+}
+a, a:hover {
+    color:#861f41;
+}
+.skippy a {
+    color: white;
+    text-decoration:none;
+}
+.skippy a:hover {
+    color:white;
+}
+.nav-link, .nav-link:focus, .breadcrumb a, .lessons-menu a:hover {
+    color:#861f41;
+}
+a:hover, .lessons-menu a:hover, .breadcrumb a:hover {
+    text-decoration: underline;
+    color: #1A3E6F;
+}
+*:focus, a:focus, .nav-link:focus, button.btn.btn-secondary:focus {
+    outline: 0.2rem dotted white;
+    box-shadow: 0 0 0 .25rem #c64600;
+    -webkit-box-shadow: 0 0 0 .25rem #c64600;
+}
+
+a>.bi {
+    text-decoration: none;
+}
+
+.form-control {
+    border-color: #909290;
+}
+
+.navbar-dark .navbar-toggler {
+    color: rgba(255, 255, 255, 1);
+    border-color: rgba(255, 255, 255, 1);
+}
+
+a.nav-link.active {
+    border-left: .2em solid white;
+    border-right: .2em solid white;
+    padding-left: .8em;
+}
+.download-list li::marker {
+    color: #861f41;
+}
+
+.quote {
+    margin: 0 0 1rem;
+    background: #fff;
+    padding: 1em;
+    border-radius: 1em;
+    border: 1px solid rgb(229, 225, 230);
+    border-left-width: 1rem;
+}
+
+.quote figcaption,
+.quote .blockquote {
+    margin: 1em;
+}
+
+.quote .blockquote {
+    text-indent: -0.5em;
+}
+
+.quote .blockquote::before {
+    content: open-quote;
+}
+
+.quote .blockquote::after {
+    content: close-quote;
+}
+.blockquote-footer {
+    color:#151719;
+}
+caption, .figure-caption {
+    color: #687178;
+}
+.lessons-head {
+    background-color: #45677B;
+    border-bottom: 5px solid white;
+}
+.central-wrapper, .copyright-wrapper, .breadcrumb-wrapper {
+    border: 5px solid white;
+    border-top: none;
+}
+
+li.current::after {
+    content: " \21E6";
+    /* Hexadecimal for Unicode Leftwards white arrow*/
+    display: inline;
+}
+
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0.2rem dotted white;
+    box-shadow: 0 0 0 .25rem #c64600;
+}
+.btn-check:focus+.btn-light, .btn-light:focus {
+    color: #000;
+    background-color: #f9fafb;
+    border-color: #f9fafb;
+    outline: 0.2rem dotted white;
+    box-shadow: 0 0 0 .25rem #c64600;
+}
+
+.rotate90 {
+    transform: rotate(90deg);
+}
+
+/* Based on https://www.cssscript.com/clean-tree-diagram/ */
+.tree,
+.tree ul,
+.tree li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.tree {
+    margin: 0 0 1em;
+    text-align: center;
+}
+
+.tree,
+.tree ul {
+    display: table;
+}
+
+.tree ul {
+    width: 100%;
+}
+
+.tree li {
+    display: table-cell;
+    padding: .5em 0;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.tree li:before {
+    outline: solid 1px #666;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.tree li:first-child:before {
+    left: 50%;
+}
+
+.tree li:last-child:before {
+    right: 50%;
+}
+
+.tree code,
+.tree span {
+    border: solid .2em #666;
+    background-color: white;
+    border-radius: .2em;
+    display: inline-block;
+    margin: 0 .2em .5em;
+    padding: .2em .6em;
+    position: relative;
+
+}
+
+.tree code.incorrect {
+    border-color: red;
+    border-style: dashed;
+}
+
+.tree ul:before,
+.tree code:before,
+.tree span:before {
+    outline: solid 1px #666;
+    content: "";
+    height: .5em;
+    left: 50%;
+    position: absolute;
+}
+
+.tree ul:before {
+    top: -.5em;
+}
+
+.tree code:before,
+.tree span:before {
+    top: -.55em;
+}
+
+.tree>li {
+    margin-top: 0;
+}
+
+.tree>li:before,
+.tree>li:after,
+.tree>li>code:before,
+.tree>li>span:before {
+    outline: none;
+}
+mark {
+    background-color: yellow;
+}
+
+.adjusted-caption {
+    top: -3em;
+}
+code {
+    color: #CC297A;
+}
+.wrapper {
+    max-width: 642px;
+    position: relative;
+    background-color: #f8f9fa;
+}
+#toggler {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+#img {
+    padding: 0;
+    margin-top: 1.8rem;
+    margin-bottom: .65rem;
+    white-space: pre;
+    background-color: transparent;
+    border: 0
+}

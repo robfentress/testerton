@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagine Responsiveness | A11yEx</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="styles/chroma.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container-fluid gold-bg">
+        <header class="container bg-dark bg-maroon">
+            <div class="skippy visually-hidden-focusable overflow-hidden">
+                <div class="container-xl">
+                    <a class="d-inline-flex p-2 m-1" href="#main">Skip to main content</a>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-maroon" aria-label="Site">
+                <div class="container">
+                    <a class="navbar-brand" href="/">
+                        </svg><span class="fs-4">A11yEx</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class=" me-auto mb-2 mb-lg-0">
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a href="/about/" class="nav-link mx-2">About</a></li>
+                                <li class="nav-item"><a href="/lessons/" class="nav-link mx-2">Lessons</a></li>
+                                <li class="nav-item"><a href="/contact/" class="nav-link mx-2">Contact</a></li>
+                            </ul>
+                        </div>
+                        <form class="d-flex" id="searchForm" action="" method="post">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-light" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <div class="container-fluid gold-bg">
+        <div class="container breadcrumb-wrapper pale-blue-bg pt-3">
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/lessons/">Lessons</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Imagine Responsiveness</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="container-fluid gold-bg">
+        <div class="container pale-blue-bg">
+            <div class="row central-wrapper">
+                <nav class="col-12 col-lg-3 lessons-menu p-0 pale-blue-bg" aria-labelledby="lessons-head">
+                    <h2 class="mb-0 h5 p-3 text-white lessons-head" aria-hidden="true" id="lessons-head">Lessons</h2>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link" href="/lessons/fundamentally-accessible/">Fundamentally
+                                Accessible</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/lessons/accessible-ux/">Accessible UX</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="/lessons/structuring-things/">Structuring
+                                Things</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/lessons/images/">Imagine Responsiveness</a></li>
+                    </ul>
+                </nav>
+                <main class="col-12 col-lg-9" id="main" tabindex="-1">
+                    <h1>Imagine Responsiveness</h1>
+                    <h2>What do you think of?</h2>
+                    <p>When you try to picture responsiveness, which of the following first comes to mind?</p>
+                    <p class="fw-bold">This:
+                    <div class="mb-3"><img src="images/first_responders.jpeg"
+                            alt="First responders at the site of a train collision" class="img-fluid border"></div>
+                    </p>
+                    <p class="fw-bold">Or this:</p>
+
+<div class="wrapper mb-4">
+    <div class="border pb-4">
+
+        <div class="highlight"><img src="images/media-query.png" alt="Formatted code showing media queries" class="img-fluid" id="img" tabindex="-1"></div>
+
+        <div class="highlight d-none" id="codeBlock">
+<pre class="chroma" id="pre" tabindex="0" role="group" aria-label="code block"><code class="language-scss" data-lang="scss"><span class="c1">// X-Small devices (portrait phones, less than 576px)
+</span><span class="c1">// No media query for `xs` since this is the default in Bootstrap
+</span><span class="c1"></span>
+<span class="c1">// Small devices (landscape phones, 576px and up)
+</span><span class="c1"></span><span class="k">@media</span> <span class="p">(</span><span class="na">min-width</span><span class="o">:</span> <span class="mi">576</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// Medium devices (tablets, 768px and up)
+</span><span class="c1"></span><span class="k">@media</span> <span class="p">(</span><span class="na">min-width</span><span class="o">:</span> <span class="mi">768</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// Large devices (desktops, 992px and up)
+</span><span class="c1"></span><span class="k">@media</span> <span class="p">(</span><span class="na">min-width</span><span class="o">:</span> <span class="mi">992</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// X-Large devices (large desktops, 1200px and up)
+</span><span class="c1"></span><span class="k">@media</span> <span class="p">(</span><span class="na">min-width</span><span class="o">:</span> <span class="mi">1200</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// XX-Large devices (larger desktops, 1400px and up)
+</span><span class="c1"></span><span class="k">@media</span> <span class="p">(</span><span class="na">min-width</span><span class="o">:</span> <span class="mi">1400</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+</code></pre>
+        </div>
+    </div>
+    
+    <button type="button" id="toggler" class="btn btn-secondary rounded-0">show code</button>
+</div>
+                    <p>As a web developer, you should be thinking in terms of the latter, by <em>responding</em> to
+                        different viewport sizes using media queries.</p>
+                    <h2>Appropriate Nesting</a>
+                    </h2>
+                    <p>It is important that elements be nested appropriately. For instance, only certain kinds of
+                        elements are allowed as children of <code>ul</code> elements. The following figures
+                        show <a href="https://dequeuniversity.com/rules/axe/4.3/list" target="_blank"><span lang="la">correct and incorrect ways of creating nested lists</span> <svg class="bi inline-block align-baseline" width="14" height="14" fill="currentColor" role="img" aria-label="opens in new window" focusable="false">
+                            <use xlink:href="images/bootstrap-icons.svg#box-arrow-up-right"/>
+                            </svg></a>. The marked items are not allowed as children of the parent shown.</p>
+                    <div class="d-flex justify-content-around flex-column flex-lg-row">
+                        <figure class="figure pr-3" role="figure" aria-labelledby="cap1">
+                            <ul class="tree" role="list">
+                                <li role="listitem">
+                                    <code>&lt;ul&gt;</code>
+                                    <ul role="list">
+                                        <li role="listitem">
+                                            <code>&lt;li&gt;</code>
+                                            <ul role="list">
+                                                <li role="listitem">
+                                                    <code>&lt;ul&gt;</code>
+                                                    <ul role="list">
+                                                        <li role="listitem">
+                                                            <code>&lt;li&gt;</code>
+                                                        </li>
+                                                        <li role="listitem">
+                                                            <code>&lt;li&gt;</code>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li role="listitem">
+                                            <code>&lt;li&gt;</code>
+                                            <ul role="list">
+                                                <li role="listitem">
+                                                    <code>&lt;ul&gt;</code>
+                                                    <ul role="list">
+                                                        <li role="listitem">
+                                                            <code>&lt;li&gt;</code>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li role="listitem">
+                                            <code>&lt;li&gt;</code>
+                                            <ul role="list">
+                                                <li role="listitem">
+                                                    <code>&lt;ul&gt;</code>
+                                                    <ul role="list">
+                                                        <li role="listitem">
+                                                            <code>&lt;li&gt;</code>
+                                                        </li>
+                                                        <li role="listitem">
+                                                            <code>&lt;li&gt;</code>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <figcaption class="figure-caption position-relative adjusted-caption" id="cap1">Figure 1:
+                                Nested Lists
+                                Example</figcaption>
+                        </figure>
+                        <figure class="figure" role="figure" aria-labelledby="cap2">
+                            <ul class="tree" role="list">
+                                <li role="listitem">
+                                    <code>&lt;ul&gt;</code>
+                                    <ul role="list">
+                                        <li role="listitem">
+                                            <code>&lt;li&gt;</code>
+                                            <ul role="list">
+                                                <li role="listitem">
+                                                    <code>&lt;ul&gt;</code>
+                                                    <ul role="list">
+                                                        <li role="listitem">
+                                                            <code>&lt;li&gt;</code>
+                                                        </li>
+                                                        <li role="listitem">
+                                                            <code>&lt;li&gt;</code>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li role="listitem">
+                                            <mark><span class="visually-hidden">invalid child element</span>
+                                            <code class="incorrect">&lt;ul&gt;</code></mark>
+                                            <ul role="list">
+                                                <li role="listitem">
+                                                    <code>&lt;li&gt;</code>
+                                                </li>
+                                                <li role="listitem">
+                                                    <code>&lt;li&gt;</code>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li role="listitem">
+                                            <mark><span class="visually-hidden">invalid child element</span>
+                                            <code class="incorrect">&lt;ul&gt;</code></mark>
+                                            <ul role="list">
+                                                <li role="listitem">
+                                                    <code>&lt;li&gt;</code>
+                                                </li>
+                                                <li role="listitem">
+                                                    <code>&lt;li&gt;</code>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <figcaption class="figure-caption position-relative adjusted-caption" id="cap2">Figure 2:
+                                Nested Lists
+                                Non-Example</figcaption>
+                        </figure>
+                    </div>
+
+                    <h2>Different documents for
+                            different purposes</h2>
+                    <p>
+                        The resources, <a href="http://www.w3.org/WAI/WCAG21/quickref/" target="_blank">WCAG 2.0 <svg class="bi inline-block align-baseline" width="14" height="14" fill="currentColor" role="img" aria-label="opens in new window" focusable="false">
+                                <use xlink:href="images/bootstrap-icons.svg#box-arrow-up-right"/>
+                                </svg></a>, <a href="https://www.w3.org/TR/WCAG20-TECHS/" target="_blank">Techniques for WCAG 2.0 <svg class="bi inline-block align-baseline" width="14" height="14" fill="currentColor" role="img" aria-label="opens in new window" focusable="false">
+                                <use xlink:href="images/bootstrap-icons.svg#box-arrow-up-right"/>
+                                </svg></a>, and <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/" target="_blank">Understanding WCAG 2.0 <svg class="bi inline-block align-baseline" width="14" height="14" fill="currentColor" role="img" aria-label="opens in new window" focusable="false">
+                                <use xlink:href="images/bootstrap-icons.svg#box-arrow-up-right"/>
+                                </svg></a> serve
+                        different
+                        purposes.
+                    The diagram below and the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/docs/" target="_blank">WCAG 2 documents explainer <svg class="bi inline-block align-baseline" width="14" height="14" fill="currentColor" role="img" aria-label="opens in new window" focusable="false">
+                        <use xlink:href="images/bootstrap-icons.svg#box-arrow-up-right"/>
+                        </svg></a> explain the relationship between them.</p>
+
+                    <figure class="figure" role="figure" aria-labelledby="cap3">
+                        <img src="images/wcag20docs.png"
+                            alt="Diagram showing the relationship between the W3C Standard, Customizable Quick Reference, Instructions for Developers, and Detailed Reference"
+                            class="img-fluid" longdesc="https://www.w3.org/WAI/standards-guidelines/wcag/docs/">
+                        <figcaption class="figure-caption" id="cap3">Figure 3: WCAG 2.0 documents. WCAG 2.1 has the same
+                            documents.</figcaption>
+                    </figure>
+
+
+                    <h2 class="mt-4">Screen orientation</h2>
+                    <p>Some of the pages on this site only display correctly on mobile devices when they are in a
+                        particular orientation.  Whether each page supports proper display in portrait <span aria-hidden="true">
+                            [<svg class="bi" width="1em" height="1em" fill="currentColor"
+                            ><use xlink:href="images/bootstrap-icons.svg#phone"></use></svg>]
+                        </span> or landscape <span aria-hidden="true">
+                            [<svg class="bi rotate90" width="1em" height="1em" fill="currentColor"
+                            ><use xlink:href="images/bootstrap-icons.svg#phone"></use></svg>]
+                        </span> mode is indicated below.</p>
+                        <table role="presentation" class="table table-striped w-auto">
+                            <tbody role="list">
+                                <tr role="listitem">
+                                    <td role="presentation"><a href="#">Fundamentally
+                                        Accessible</a></td>
+                                    <td role="presentation"><svg class="bi" width="1em" height="1em" fill="currentColor" role="img"
+                                        aria-label="supports portrait mode">
+                                        <use xlink:href="images/bootstrap-icons.svg#phone"></use>
+                                    </svg></td>
+                                    <td role="presentation"><svg class="bi rotate90" width="1em" height="1em" fill="currentColor" role="img"
+                                        aria-label="supports landscape mode">
+                                        <use xlink:href="images/bootstrap-icons.svg#phone"></use>
+                                    </svg></td>
+                                </tr>
+                                <tr role="listitem">
+                                    <td role="presentation"><a href="#">Accessible
+                                        UX</a></td>
+                                    <td role="presentation"><svg class="bi" width="1em" height="1em" fill="currentColor" role="img"
+                                        aria-label="supports portrait mode">
+                                        <use xlink:href="images/bootstrap-icons.svg#phone"></use>
+                                    </svg></td>
+                                    <td role="presentation"><svg class="bi rotate90" width="1em" height="1em" fill="currentColor" role="img"
+                                        aria-label="supports landscape mode">
+                                        <use xlink:href="images/bootstrap-icons.svg#phone"></use>
+                                    </svg></td>
+                                </tr>
+                                <tr role="listitem">
+                                    <td role="presentation"><a href="#">Structuring
+                                        Things</a></td>
+                                    <td role="presentation"><svg class="bi" width="1em" height="1em" fill="currentColor" role="img"
+                                        aria-label="supports portrait mode">
+                                        <use xlink:href="images/bootstrap-icons.svg#phone"></use>
+                                    </svg></td>
+                                    <td role="presentation"><svg class="bi rotate90" width="1em" height="1em" fill="currentColor" role="img"
+                                        aria-label="supports landscape mode">
+                                        <use xlink:href="images/bootstrap-icons.svg#phone"></use>
+                                    </svg></td>
+                                </tr>
+                                <tr role="listitem">
+                                    <td role="presentation"><a href="#">Imagine
+                                        Responsiveness</a></td>
+                                    <td role="presentation"><svg class="bi" width="1em" height="1em" fill="currentColor" role="img"
+                                        aria-label="supports portrait mode">
+                                        <use xlink:href="images/bootstrap-icons.svg#phone"></use>
+                                    </svg></td>
+                                    <td role="presentation"> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    <h2 class="mt-5">Screen Readers</h2>
+                    <p>Based on the <a href="https://webaim.org/projects/screenreadersurvey9/" target="_blank">most recent WebAIM Screen
+                                Reader User Survey <svg class="bi inline-block align-baseline" width="14" height="14" fill="currentColor" role="img" aria-label="opens in new window" focusable="false">
+                                <use xlink:href="images/bootstrap-icons.svg#box-arrow-up-right"/>
+                                </svg></a>, which asked, "Which of the following is your primary desktop/laptop screen reader?" there are only four major screen readers for desktop operating
+                        systems, with the rest seeing very minimal usage.</p>
+                    <figure class="figure" role="figure" aria-labelledby="cap4">
+                        <div class="d-flex flex-column">
+                            <img src="images/pie.png" class="img-fluid border rounded" alt="Pie chart showing usage of different screen readers.  Details in table that follows.">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Screen Reader</th>
+                                        <th># of respondents</th>
+                                        <th>% of respondents</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>JAWS</td>
+                                        <td>832</td>
+                                        <td>53.75</td>
+                                    </tr>
+                                    <tr>
+                                        <td>NVDA</td>
+                                        <td>476</td>
+                                        <td>30.75</td>
+                                    </tr>
+                                    <tr>
+                                        <td>VoiceOver</td>
+                                        <td>100</td>
+                                        <td>6.46</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ZoomText/Fusion</td>
+                                        <td>72</td>
+                                        <td>4.65</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Other</td>
+                                        <td>68</td>
+                                        <td>4.39</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <figcaption class="figure-caption" id="cap4">Figure 4: Desktop/Laptop Screen Reader Prevalence
+                        </figcaption>
+                    </figure>
+                </main>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid gold-bg">
+        <div class="container text-center text-white bg-dark py-2 copyright-wrapper">
+            © 2021 Virginia Tech
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+
+</html>
