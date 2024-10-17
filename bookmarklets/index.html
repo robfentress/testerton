@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmarklets</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Bookmarklets</h1>
+      <ul>
+        <li>
+          <dfn>
+            <a
+              href="javascript:void((function()%7BandiScript%3Ddocument.createElement(%27script%27)%3BandiScript.setAttribute(%27src%27,%27https://www.ssa.gov/accessibility/andi/andi.js%27)%3Bdocument.body.appendChild(andiScript)%7D)())%3B"
+              >ANDI</a
+            >:
+          </dfn>
+          ANDI is a "favelet" or "bookmarklet" that will:
+          <ul>
+            <li>Provide automated detection of accessibility issues</li>
+            <li>
+              Reveal what a screen reader should say for interactive elements
+              (the accessible name computation)
+            </li>
+            <li>
+              Give practical suggestions to improve accessibility and check 508
+              compliance
+            </li>
+          </ul>
+        </li>
+        <li>
+          <dfn
+            ><a
+              href="javascript:(function()%7B%20var%20style%20%3D%20document.createElement(%27style%27),%20styleContent%20%3D%20document.createTextNode(%27*%20%7B%20cursor:%20url(data:image/png%3Bbase64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJBJREFUeNrs2dEKgDAIhWEN3/%2BVLYtBF12MppHwDxY0uvg4DJpORcSl0bB4uPcwq%2BoFHu8/956pbtJsAAYMGDBgwIABA044t3pMEgb8VU2XsWdn1o/aUUn4bchPBWNFYWvVidxbCFGmr7YULBs1YDPfsYcXEi9ryvDjAAwYMGDAgAED7nK8bHG7qNLs6nYXYAAheh5j8Qw5fwAAAABJRU5ErkJggg%3D%3D)%2022%2022,%20auto%20!important%7D%27)%3B%20style.appendChild(styleContent%20)%3B%20var%20caput%20%3D%20document.getElementsByTagName(%27head%27)%3B%20caput%5B0%5D.appendChild(style)%3B%20document.onkeydown%3Dfunction(e)%7Bvar%20n%3B(%27key%27in(e%3De%7C%7Cwindow.event)%3F%27Escape%27%3D%3De.key%7C%7C%27Esc%27%3D%3De.key:27%3D%3De.keyCode)%26%26(n%3Ddocument.createElement(%27style%27),document.head.appendChild(n),n.sheet.insertRule(%27*%7Bcursor:revert%20!important%7D%27,0))%7D%3B%20%7D)()%3B"
+              >44x44 Cursor</a
+            ></dfn
+          >: Changes your cursor to 44x44 pixels square for testing
+          <a href="https://www.w3.org/WAI/WCAG21/quickref/#target-size"
+            >WCAG Target Size and Pointer Target Spacing requirements</a
+          >.
+        </li>
+        <li>
+          <dfn
+            ><a
+              href="javascript:(function()%7Bvar%20d%3Ddocument,id%3D%27phltsbkmklt%27,el%3Dd.getElementById(id),f%3Dd.querySelectorAll(%27iframe%27),i%3D0,l%3Df.length%3Bif(el)%7Bfunction%20removeFromShadows(root)%7Bfor(var%20el%20of%20root.querySelectorAll(%27*%27))%7Bif(el.shadowRoot)%7Bel.shadowRoot.getElementById(id).remove()%3BremoveFromShadows(el.shadowRoot)%3B%7D%7D%7Del.remove()%3Bif(l)%7Bfor(i%3D0%3Bi%3Cl%3Bi%2B%2B)%7Btry%7Bf%5Bi%5D.contentWindow.document.getElementById(id).remove()%3BremoveFromShadows(f%5Bi%5D.contentWindow.document)%3B%7Dcatch(e)%7Bconsole.log(e)%7D%7D%7DremoveFromShadows(d)%3B%7Delse%7Bs%3Dd.createElement(%27style%27)%3Bs.id%3Did%3Bs.appendChild(d.createTextNode(%27*%7Bline-height:1.5%20!important%3Bletter-spacing:0.12em%20!important%3Bword-spacing:0.16em%20!important%3B%7Dp%7Bmargin-bottom:2em%20!important%3B%7D%27))%3Bfunction%20applyToShadows(root)%7Bfor(var%20el%20of%20root.querySelectorAll(%27*%27))%7Bif(el.shadowRoot)%7Bel.shadowRoot.appendChild(s.cloneNode(true))%3BapplyToShadows(el.shadowRoot)%3B%7D%7D%7Dd.getElementsByTagName(%27head%27)%5B0%5D.appendChild(s)%3Bfor(i%3D0%3Bi%3Cl%3Bi%2B%2B)%7Btry%7Bf%5Bi%5D.contentWindow.document.getElementsByTagName(%27head%27)%5B0%5D.appendChild(s.cloneNode(true))%3BapplyToShadows(f%5Bi%5D.contentWindow.document)%3B%7Dcatch(e)%7Bconsole.log(e)%7D%7DapplyToShadows(d)%3B%7D%7D)()%3B"
+              >Text Spacing</a
+            ></dfn
+          >: Quick and dirty testing of
+          <a href="https://www.w3.org/TR/WCAG21/#text-spacing"
+            >WCAG 2.1 Success Criterion 1.4.12 Text Spacing</a
+          >.
+        </li>
+        <li>
+          <dfn
+            ><a
+              href="javascript:(function()%7Bfunction%20c(a,b)%7Bvar%20c%3Ddocument.createElement(%22textarea%22)%3Bc.name%3Da%3Bc.value%3Db%3Bd.appendChild(c)%7Dvar%20e%3Dfunction(a)%7Bfor(var%20b%3D%22%22,a%3Da.firstChild%3Ba%3B)%7Bswitch(a.nodeType)%7Bcase%20Node.ELEMENT_NODE:b%2B%3Da.outerHTML%3Bbreak%3Bcase%20Node.TEXT_NODE:b%2B%3Da.nodeValue%3Bbreak%3Bcase%20Node.CDATA_SECTION_NODE:b%2B%3D%22%3C!%5BCDATA%5B%22%2Ba.nodeValue%2B%22%5D%5D%5C%3E%22%3Bbreak%3Bcase%20Node.COMMENT_NODE:b%2B%3D%22%3C%5C!--%22%2Ba.nodeValue%2B%22--%5C%3E%22%3Bbreak%3Bcase%20Node.DOCUMENT_TYPE_NODE:b%2B%3D%22%3C!DOCTYPE%20%22%2Ba.name%2B%22%3E%5Cn%22%7Da%3Da.nextSibling%7Dreturn%20b%7D(document),d%3Ddocument.createElement(%22form%22)%3Bd.method%3D%22POST%22%3Bd.action%3D%22https://validator.w3.org/nu/%22%3Bd.enctype%3D%22multipart/form-data%22%3Bd.target%3D%22_blank%22%3Bd.acceptCharset%3D%22utf-8%22%3Bc(%22showsource%22,%22yes%22)%3Bc(%22content%22,e)%3Bdocument.body.appendChild(d)%3Bd.submit()%7D)()%3B"
+              >Check Serialized DOM of Current Page</a
+            ></dfn
+          >: Sends a serialized version of the current state of the current DOM
+          to the NuHTML checker.
+        </li>
+        <li>
+          <dfn
+            ><a
+              href="javascript:(function()%7Bvar%20removeNg%3Dtrue%3Bvar%20filterStrings%3D%5B%22tag%20seen%22,%22Stray%20end%20tag%22,%22Bad%20start%20tag%22,%22violates%20nesting%20rules%22,%22Duplicate%20ID%22,%22first%20occurrence%20of%20ID%22,%22Unclosed%20element%22,%22not%20allowed%20as%20child%20of%20element%22,%22unclosed%20elements%22,%22not%20allowed%20on%20element%22,%22unquoted%20attribute%20value%22,%22Duplicate%20attribute%22%5D%3Bvar%20filterRE,root,results,result,resultText,i,cnt%3D0%3BfilterRE%3DfilterStrings.join(%22%7C%22)%3Broot%3Ddocument.getElementById(%22results%22)%3Bif(!root)%7Balert(%22No%20results%20container%20found.%22)%3Breturn%7Dresults%3Droot.getElementsByTagName(%22li%22)%3Bfor(i%3D0%3Bi%3Cresults.length%3Bi%2B%2B)%7Bresult%3Dresults%5Bi%5D%3Bif(result.className!%3D%3D%22%22)%7BresultText%3D(result.innerText!%3D%3Dundefined%3Fresult.innerText:result.textContent)%2B%22%22%3Bif(resultText.match(filterRE)%3D%3D%3Dnull)%7Bresult.style.display%3D%22none%22%3Bresult.className%3Dresult.className%2B%22%20steveNoLike%22%3Bcnt%2B%2B%7Delse%20if(removeNg%3D%3Dtrue)%7Bif(resultText.indexOf(%22not%20allowed%20on%20element%22)!%3D%3D-1%26%26resultText.indexOf(%22ng-%22)!%3D%3D-1)%7Bresult.style.display%3D%22none%22%3Bresult.className%3Dresult.className%2B%22%20steveNoLike%22%3Bcnt%2B%2B%7D%7D%7D%7Dalert(%22Complete.%20%22%2Bcnt%2B%22%20items%20removed.%22)%7D)()%3B"
+              >Check for WCAG 2.X Parsing Conformance</a
+            ></dfn
+          >: Removes results from the NuHTML checker output that don't violate
+          <a href="https://www.w3.org/WAI/WCAG21/quickref/#parsing"
+            >WCAG Success Criterion 4.1.1 Parsing</a
+          >.
+        </li>
+        <li>
+          <dfn
+            ><a
+              href="javascript:(function()%7Bvar%20n%3D32%3Bvar%20end%3D8365%3Bkey()%3Bfunction%20key()%7Bconsole.log(n%2B%27:%20%27%2BString.fromCharCode(n))%3Be%3Ddocument.createEvent(%27Event%27)%3Be.initEvent(%27keydown%27,%20true,%20false)%3Be.key%3DString.fromCharCode(n)%3Be.which%20%3D%20n%3Be.keyCode%3Dn%3Be.charCode%3Dn%3Bdocument.getElementsByTagName(%27BODY%27)%5B0%5D.dispatchEvent(e)%3Be%3Ddocument.createEvent(%27Event%27)%3Be.initEvent(%27keypress%27,%20true,%20false)%3Be.key%3DString.fromCharCode(n)%3Be.which%20%3D%20n%3Be.keyCode%3Dn%3Be.charCode%3Dn%3Bdocument.getElementsByTagName(%27BODY%27)%5B0%5D.dispatchEvent(e)%3Be%3Ddocument.createEvent(%27Event%27)%3Be.initEvent(%27keyup%27,%20true,%20false)%3Be.key%3DString.fromCharCode(n)%3Be.which%20%3D%20n%3Be.keyCode%3Dn%3Be.charCode%3Dn%3Bdocument.getElementsByTagName(%27BODY%27)%5B0%5D.dispatchEvent(e)%3B%20n%2B%2B%3B%20if(n%3Cend)%7Bif(n%3D%3D127)%20n%3D161%3B%20if(n%3D%3D192)%20n%3D8364%3B%20x%3Dwindow.setTimeout(key,%2020)%3B%7D%7D%7D)()%3B"
+              >Trigger character key shortcuts</a
+            ></dfn
+          >: Just automatically presses all the character keys to see if they
+          trigger any changes on the page.
+        </li>
+        <li>
+          <dfn
+            ><a
+              href="javascript:(function()%7BOverlayScript%3Ddocument.createElement(%27script%27)%3BOverlayScript.setAttribute(%27src%27,%27https://kengdoj.github.io/new-bookmarklets/bookmarklet_js/flasher3hz.js%27)%3Bdocument.body.insertBefore(OverlayScript,%20document.body.firstChild)%3B%7D())%3B"
+              >3Hz Flasher</a
+            ></dfn
+          >: Just flashes some text on the screen at 3Hz, so you can have
+          something to compare with to see if
+          <a
+            href="https://www.w3.org/WAI/WCAG21/quickref/#three-flashes-or-below-threshold"
+            >WCAG Success Criterion 2.3.1 Three Flashes or Below Threshold</a
+          >
+          is being violated.
+        </li>
+        <li>
+          <dfn
+            ><a
+              href="javascript:(function()%7Bvar%20element%3Ddocument.createElement(%27script%27)%3B%20element.setAttribute(%27src%27,%27https://mraccess77.github.io/favlets/Label-in-name.js%27)%3Bdocument.body.appendChild(element)%3B%7D)()%3B"
+              >Label in Name Favlet</a
+            ></dfn
+          >: If it is different from the <code>label</code>, <code>value</code>,
+          or <code>textContent</code>, this displays the accessible name for
+          elements matching the following selectors: <code>button</code>,
+          <code>input</code>, <code>textarea</code>, <code>select</code>,
+          <code>[tabindex='0']</code>, <code>a[href]</code>,
+          <code>summary</code>. Helps in determining conformance with
+          <a href="https://www.w3.org/WAI/WCAG21/quickref/#label-in-name"
+            >2.5.3 Label in Name
+          </a>
+        </li>
+        <li>
+          <dfn>
+            <a
+              href="javascript:(function() {var _p='//squizlabs.github.io/HTML_CodeSniffer/build/';var _i=function(s,cb) {var sc=document.createElement('script');sc.onload = function() {sc.onload = null;sc.onreadystatechange = null;cb.call(this);};sc.onreadystatechange = function(){if(/^(complete|loaded)$/.test(this.readyState) === true){sc.onreadystatechange = null;sc.onload();}};sc.src=s;if (document.head) {document.head.appendChild(sc);} else {document.getElementsByTagName('head')[0].appendChild(sc);}}; var options={path:_p};_i(_p+'HTMLCS.js',function(){HTMLCSAuditor.run('WCAG2AA',null,options);});})();"
+              >HTML_CodeSniffer</a
+            > </dfn
+          >: A client-side script that checks HTML source code and detects
+          violations of a defined coding standard.
+        </li>
+        <li>
+          <dfn>
+            <a
+              href="javascript:!function()%7Bconst%20o%3Ddocument.createElement(%22style%22)%3Bo.innerHTML%3D%22.auto-complete-candidate%20%7Boutline%3A3px%20dotted%20orange%3B%7D.auto-complete-required%20%7Boutline%3A3px%20solid%20red%3B%7D%22%2Cdocument.querySelector(%22head%22).append(o)%3Bconst%20e%3Ddocument.querySelectorAll(%22input%3Anot(%5Btype%3Dradio%5D)%3Anot(%5Btype%3Dcheckbox%5D)%3Anot(%5Btype%3Dhidden%5D)%3Anot(%5Btype%3Dsubmit%5D)%2Cselect%22)%3Bconsole.clear()%3Blet%20n%3D%22%22%2Ct%3D%22%22%2Ca%3D%22%22%2Ci%3D%22%22%2Cl%3D%22%22%2Cp%3D%22%22%3Bp%2B%3D%27%3Coption%20value%3D%22%22%3EPick%20an%20autocomplete%20value...%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22name%22%3Ename%20(full%20name)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22honorific-prefix%22%3Ehonorific-prefix%20(prefix%2C%20title%20e.g.%20Mr%2FMrs)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22given-name%22%3Egiven-name%20(first-name%2C%20forename)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22additional-name%22%3Eadditional-name%20(middle%20name)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22family-name%22%3Efamily-name%20(last%20name%2C%20surname)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22honorific-suffix%22%3Ehonorific-suffix%20(suffix%20e.g.%20Jnr%2FEsq)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22nickname%22%3Enickname%20(screen%20name%2C%20handle)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22username%22%3Eusername%20(login%20name%2C%20account%20name)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22new-password%22%3Enew-password%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22current-password%22%3Ecurrent-password%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22one-time-code%22%3Eone-time-code%20(one-time-password%2C%20otp%2C%20otc)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22organization-title%22%3Eorganization-title%20(job%20title)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22organization%22%3Eorganization%20(company-name%2C%20company)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22street-address%22%3Estreet-address%20(full%20address%2C%20postal%20address)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22address-line1%22%3Eaddress-line1%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22address-line2%22%3Eaddress-line2%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22address-line3%22%3Eaddress-line3%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22address-level4%22%3Eaddress-level4%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22address-level3%22%3Eaddress-level3%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22address-level2%22%3Eaddress-level2%20(city%2C%20town%2C%20village)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22address-level1%22%3Eaddress-level1%20(state%2C%20post-town%2C%20province%2C%20canton)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22country%22%3Ecountry%20(country%20code%2C%20territory%20code)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22country-name%22%3Ecountry-name%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22postal-code%22%3Epostal-code%20(post%20code%2C%20zip%20code%2C%20cedex%20code)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22tel%22%3Etel%20(full%20telephone%20number)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22tel-country-code%22%3Etel-country-code%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22tel-national%22%3Etel-national%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22tel-area-code%22%3Etel-area-code%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22tel-local%22%3Etel-local%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22tel-local-prefix%22%3Etel-local-prefix%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22tel-local-suffix%22%3Etel-local-suffix%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22tel-extension%22%3Etel-extension%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22bday%22%3Ebday%20(birthday)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22bday-day%22%3Ebday-day%20(birthday%20day)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22bday-month%22%3Ebday-month%20(birthday%20month)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22bday-year%22%3Ebday-year%20(birthday%20year)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22sex%22%3Esex%20(gender)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22email%22%3Eemail%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22cc-name%22%3Ecc-name%20(credit%20card%20full%20name)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22cc-given-name%22%3Ecc-given-name%20(credit%20card%20first%20name)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22cc-additional-name%22%3Ecc-additional-name%20(credit%20card%20middle-name)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22cc-family-name%22%3Ecc-family-name%20(credit%20card%20surname)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22cc-number%22%3Ecc-number%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22cc-exp%22%3Ecc-exp%20(credit%20card%20expiry%20date)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22cc-exp-month%22%3Ecc-exp-month%20(credit%20card%20expiry%20month)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22cc-exp-year%22%3Ecc-exp-year%20(credit%20card%20expiry%20year)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22cc-csc%22%3Ecc-csc%20(credit%20card%20cvc%203-digit%20code)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22cc-type%22%3Ecc-type%20(credit%20card%20type)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22transaction-currency%22%3Etransaction-currency%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22transaction-amount%22%3Etransaction-amount%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22language%22%3Elanguage%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22url%22%3Eurl%20(web%20address%2Fhomepage)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22photo%22%3Ephoto%20(image%2C%20avatar%2C%20icon)%3C%2Foption%3E%5Cn%27%2Cp%2B%3D%27%3Coption%20value%3D%22impp%22%3Eimpp%3C%2Foption%3E%5Cn%27%2CArray.from(e).forEach((function(o)%7Bn%3Do.outerHTML%2Ci%3Do.getAttribute(%22id%22)%2Co.classList.add(%22auto-complete-candidate%22)%3Bconst%20e%3Ddocument.createElement(%22DIV%22)%3Be.innerHTML%3D%27%3Cselect%20class%3D%22autoCompleteSuggestion%22%20data-field-id%3D%22%27%2Bi%2B%27%22%20aria-label%3D%22autocomplete%20suggestion%20for%20%27%2Bi%2B%27%22%3E%5Cn%3Coption%20value%3D%22%22%3EPick%20an%20autocomplete%20value...%3C%2Foption%3E%5Cn%3Coption%20value%3D%22name%22%3Ename%20(full%20name)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22honorific-prefix%22%3Ehonorific-prefix%20(prefix%2C%20title%20e.g.%20Mr%2FMrs)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22given-name%22%3Egiven-name%20(first-name%2C%20forename)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22additional-name%22%3Eadditional-name%20(middle%20name)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22family-name%22%3Efamily-name%20(last%20name%2C%20surname)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22honorific-suffix%22%3Ehonorific-suffix%20(suffix%20e.g.%20Jnr%2FEsq)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22nickname%22%3Enickname%20(screen%20name%2C%20handle)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22username%22%3Eusername%20(login%20name%2C%20account%20name)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22new-password%22%3Enew-password%3C%2Foption%3E%5Cn%3Coption%20value%3D%22current-password%22%3Ecurrent-password%3C%2Foption%3E%5Cn%3Coption%20value%3D%22one-time-code%22%3Eone-time-code%20(one-time-password%2C%20otp%2C%20otc)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22organization-title%22%3Eorganization-title%20(job%20title)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22organization%22%3Eorganization%20(company-name%2C%20company)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22street-address%22%3Estreet-address%20(full%20address%2C%20postal%20address)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22address-line1%22%3Eaddress-line1%3C%2Foption%3E%5Cn%3Coption%20value%3D%22address-line2%22%3Eaddress-line2%3C%2Foption%3E%5Cn%3Coption%20value%3D%22address-line3%22%3Eaddress-line3%3C%2Foption%3E%5Cn%3Coption%20value%3D%22address-level4%22%3Eaddress-level4%3C%2Foption%3E%5Cn%3Coption%20value%3D%22address-level3%22%3Eaddress-level3%3C%2Foption%3E%5Cn%3Coption%20value%3D%22address-level2%22%3Eaddress-level2%20(city%2C%20town%2C%20village)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22address-level1%22%3Eaddress-level1%20(state%2C%20post-town%2C%20province%2C%20canton)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22country%22%3Ecountry%20(country%20code%2C%20territory%20code)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22country-name%22%3Ecountry-name%3C%2Foption%3E%5Cn%3Coption%20value%3D%22postal-code%22%3Epostal-code%20(post%20code%2C%20zip%20code%2C%20cedex%20code)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22tel%22%3Etel%20(full%20telephone%20number)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22tel-country-code%22%3Etel-country-code%3C%2Foption%3E%5Cn%3Coption%20value%3D%22tel-national%22%3Etel-national%3C%2Foption%3E%5Cn%3Coption%20value%3D%22tel-area-code%22%3Etel-area-code%3C%2Foption%3E%5Cn%3Coption%20value%3D%22tel-local%22%3Etel-local%3C%2Foption%3E%5Cn%3Coption%20value%3D%22tel-local-prefix%22%3Etel-local-prefix%3C%2Foption%3E%5Cn%3Coption%20value%3D%22tel-local-suffix%22%3Etel-local-suffix%3C%2Foption%3E%5Cn%3Coption%20value%3D%22tel-extension%22%3Etel-extension%3C%2Foption%3E%5Cn%3Coption%20value%3D%22bday%22%3Ebday%20(birthday)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22bday-day%22%3Ebday-day%20(birthday%20day)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22bday-month%22%3Ebday-month%20(birthday%20month)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22bday-year%22%3Ebday-year%20(birthday%20year)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22sex%22%3Esex%20(gender)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22email%22%3Eemail%3C%2Foption%3E%5Cn%3Coption%20value%3D%22cc-name%22%3Ecc-name%20(credit%20card%20full%20name)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22cc-given-name%22%3Ecc-given-name%20(credit%20card%20first%20name)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22cc-additional-name%22%3Ecc-additional-name%20(credit%20card%20middle-name)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22cc-family-name%22%3Ecc-family-name%20(credit%20card%20surname)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22cc-number%22%3Ecc-number%3C%2Foption%3E%5Cn%3Coption%20value%3D%22cc-exp%22%3Ecc-exp%20(credit%20card%20expiry%20date)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22cc-exp-month%22%3Ecc-exp-month%20(credit%20card%20expiry%20month)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22cc-exp-year%22%3Ecc-exp-year%20(credit%20card%20expiry%20year)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22cc-csc%22%3Ecc-csc%20(credit%20card%20cvc%203-digit%20code)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22cc-type%22%3Ecc-type%20(credit%20card%20type)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22transaction-currency%22%3Etransaction-currency%3C%2Foption%3E%5Cn%3Coption%20value%3D%22transaction-amount%22%3Etransaction-amount%3C%2Foption%3E%5Cn%3Coption%20value%3D%22language%22%3Elanguage%3C%2Foption%3E%5Cn%3Coption%20value%3D%22url%22%3Eurl%20(web%20address%2Fhomepage)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22photo%22%3Ephoto%20(image%2C%20avatar%2C%20icon)%3C%2Foption%3E%5Cn%3Coption%20value%3D%22impp%22%3Eimpp%3C%2Foption%3E%5Cn%3C%2Fselect%3E%5Cn%27%2Ce.classList.add(%22tempDiv%22)%2Ce.style%3D%22margin%3A5px%200%2020px%200%22%3Bconst%20t%3Do.getAttribute(%22autocomplete%22)%3Bif(console.log(t)%2Ct)%7Bconst%20o%3De.querySelector(%60select%20option%5Bvalue%3D%22%24%7Bt%7D%22%5D%60)%3Bconsole.log(o)%2Co%26%26o.setAttribute(%22selected%22%2C%22%22)%7Dvar%20a%2Cl%3Ba%3De%2C(l%3Do).parentNode.insertBefore(a%2Cl.nextSibling)%7D))%3Bconst%20c%3Ddocument.querySelectorAll(%22.autoCompleteSuggestion%22)%3Blet%20r%3D%22%22%3BArray.from(c).forEach((function(o)%7Bo.addEventListener(%22change%22%2C(function()%7Bt%3D%22%22%2Ca%3D%22%22%2Cl%3Do%5Bo.selectedIndex%5D.value%2Cr%3Do.getAttribute(%22data-field-id%22)%2Cdocument.querySelector(%22%23%22%2Br).classList.add(%22auto-complete-required%22)%2Cdocument.querySelector(%22%23%22%2Br).setAttribute(%22autocomplete%22%2Cl)%3Bconst%20e%3Ddocument.querySelectorAll(%22.auto-complete-required%22)%3BArray.from(e).forEach((function(o)%7Bt%2B%3D%22*%20%22%2Bo.getAttribute(%22id%22)%2B%22%3A%20%22%2Bo.getAttribute(%22autocomplete%22)%2B%22%5Cn%22%2Ca%2B%3Do.outerHTML%2B%22%5Cn%22%7D))%2Cconsole.clear()%2Ca%3Da.split(%27class%3D%22amended%22%27).join(%22%22).split(%22%20amended%22).join(%22%22).split(%27%20class%3D%22%22%27).join(%22%22)%2Cconsole.log(%22The%20following%20fields%20require%20an%20autocomplete%20attribute%20as%20specified%3A%5Cn%5Cn%22%2Bt%2B%22%5CnFull%20details%3A%5Cn%5Cn%7Bcode%7D%5Cn%22%2Ba%2B%22%7Bcode%7D%22)%7D))%7D))%3Bconst%20d%3Ddocument.createElement(%22button%22)%3Bd.setAttribute(%22type%22%2C%22button%22)%2Cd.innerHTML%3D%22Prep%20for%20screenshot!%22%2Cd.style%3D%22position%3Afixed%3Bz-index%3A10000%3Btop%3A1em%3Bright%3A1em%3Bbackground%3Ared%3Bcolor%3Awhite%3Bfont-weight%3Abold%3B%22%2Cdocument.querySelector(%22body%22).append(d)%2Cd.addEventListener(%22click%22%2C(function()%7Bd.remove()%3Bconst%20o%3Ddocument.querySelectorAll(%22.auto-complete-candidate%22)%3BArray.from(o).forEach((function(o)%7Bo.classList.remove(%22auto-complete-candidate%22)%7D))%3Bconst%20e%3Ddocument.querySelectorAll(%22.tempDiv%22)%3BArray.from(e).forEach((function(o)%7Bo.remove()%7D))%7D))%7D()%3B"
+              >Suggest autocomplete values</a
+            > </dfn
+          >: Adds a <code>select</code> element with all the possible
+          autocomplete values whenever it sees an element that supports the
+          <code>autocomplete</code> attribute. If an
+          <code>autocomplete</code> attribute exists and it's value is an
+          <code>option</code> in the <code>select</code> element, it will be
+          marked as <code>selected</code>.
+        </li>
+        <li>
+          <dfn
+            ><a
+              href="javascript:(function()%7B'use%20strict'%0Afunction%20isolateImages()%7B%0A%20%20const%20els%3Ddocument.querySelectorAll('*')%3B%0A%20%20const%20page%3Ddocument.querySelector('body')%3B%0A%20%20console.log(%22els.length%22%2Cels.length)%3B%0A%20%20Array.from(els).forEach(function%20(el)%20%7B%0A%20%20%20%20el.style.color%3D%22transparent%22%3B%0A%20%20%20%20el.style.background%3D%22transparent%22%3B%0A%20%20%20%20el.style.borderColor%3D%22transparent%22%3B%0A%20%20%20%20el.style.outline%3D%22transparent%22%3B%0A%20%20%20%20el.style.fontSize%3D%221px%22%3B%0A%20%20%7D)%3B%0A%20%20page.style.zoom%3D%2250%25%22%3B%0A%0A%20%20const%20imgs%3Ddocument.querySelectorAll('img%2C%5Brole%3Dimg%5D')%3B%0A%20%20Array.from(imgs).forEach(function%20(img)%20%7B%0A%20%20%20%20img.style.outline%3D%2210px%20solid%20black%22%3B%0A%20%20%20%20img.style.outlineOffset%3D%22-10px%22%3B%0A%20%20%7D)%3B%0A%7D%0AisolateImages()%3B%7D)()"
+              >Isolate images</a
+            ></dfn
+          >:
+          <ul>
+            <li>
+              Slightly experimental idea - this one does the opposite of some
+              other tools (that hide images), and instead hides anything that is
+              not an image
+            </li>
+            <li>
+              It zooms the page out so you can see more in one go - a wall of
+              images
+            </li>
+            <li>
+              Aim of this is to be able to glance at the images and see if you
+              can spot images that are actually just text which may not be
+              obvious when scrolling the page in its normal state
+            </li>
+            <li>
+              Trying to weed out
+              <a href="https://www.w3.org/TR/WCAG21/#images-of-text"
+                >SC 1.4.5 Images of Text</a
+              >
+              issues
+            </li>
+          </ul>
+        </li>
+        <li>
+          <dfn>
+            <a
+              href="javascript:(function()%7Bimport('https%3A%2F%2Funpkg.com%2Fagnostic-axe%403').then(%0A%20%20(%7B%20AxeObserver%2C%20logViolations%20%7D)%20%3D%3E%20%7B%0A%20%20%20%20const%20MyAxeObserver%20%3D%20new%20AxeObserver(logViolations)%0A%20%20%20%20MyAxeObserver.observe(document)%0A%20%20%7D%0A)%7D)()%3B"
+              >Agnostic-axe</a
+            > </dfn
+          >: Developer tool that continuously observes the DOM to detect
+          accessibility issues. Its audits are powered by
+          <a href="https://github.com/dequelabs/axe-core">axe-core</a>.
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
