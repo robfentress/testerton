@@ -1,0 +1,315 @@
+
+a,
+.nav-link,
+.list-group-item-action {
+    color: #003C71;
+    /* text-decoration: none; */
+}
+
+.list-group-item-action+.active {
+    background-color: #003C71;
+
+    border-color: #861f41;
+}
+
+a>.bi {
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    color: #861f41;
+}
+
+.nav-link:focus {
+    /* text-decoration: underline; */
+    color: #861f41;
+}
+
+header>a {
+    color: #861f41;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: white;
+    background-color: #c64600;
+}
+
+div.list {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-right: 2rem;
+    padding-left: 2em;
+}
+
+div.list div.item::before {
+    position: absolute;
+
+    content: "\2022";
+    /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #861f41;
+    /* Change the color */
+    font-weight: bold;
+    /* If you want it to be bold */
+    display: inline-block;
+    /* Needed to add space between the bullet and the text */
+    width: 1rem;
+    /* Also needed for space (tweak if needed) */
+    margin-left: -1rem;
+    /* Also needed for space (tweak if needed) */
+}
+
+.form-control {
+    border-color: #909290;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, .8);
+}
+
+.navbar-dark .navbar-toggler {
+    color: rgba(255, 255, 255, .8);
+    border-color: rgba(255, 255, 255, .8);
+}
+
+.skippy a {
+    color: white;
+}
+
+.download-list li::marker {
+    color: #861f41;
+}
+
+[dir="rtl"] {
+    text-align: center;
+}
+
+[dir="rtl"]>span {
+    display: inline-block;
+    width: 16.6%;
+    text-align: left;
+    padding: .5em;
+    margin: 0;
+    vertical-align: top;
+    ;
+}
+
+
+/* Variables
+================================== */
+/* Tables
+================================== */
+.Rtable {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 3em 0;
+    padding: 0;
+}
+
+.Rtable-cell {
+    box-sizing: border-box;
+    flex-grow: 1;
+    width: 100%;
+    padding: 0.8em 1.2em;
+    overflow: hidden;
+    list-style: none;
+
+}
+
+.Rtable--3cols {
+    border: solid 3px white;
+}
+
+.Rtable--4cols {
+    width: 70%;
+}
+
+/* Table column sizing
+================================== */
+.Rtable--2cols>.Rtable-cell {
+    width: 50%;
+}
+
+.Rtable--3cols>.Rtable-cell {
+    width: 33.33%;
+    border: solid 3px white;
+    /* background: rgba(112, 128, 144, 0.2); */
+    background: rgb(229, 225, 230)
+}
+
+.Rtable--4cols>.Rtable-cell {
+    width: 25%;
+    border-bottom: 1px solid gray;
+    box-sizing: border-box;
+    flex-grow: 1;
+    width: 100%;
+    padding: 0.8em 1.2em;
+    overflow: hidden;
+    list-style: none;
+}
+
+.Rtable--4cols>.Rtable-cell-6 {
+    width: 45%;
+    margin-left: 1rem;
+}
+
+.Rtable--4cols>.Rtable-cell-6::before {
+    position: absolute;
+
+    content: "\2022";
+    /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #861f41;
+    /* Change the color */
+    font-weight: bold;
+    /* If you want it to be bold */
+    display: inline-block;
+    /* Needed to add space between the bullet and the text */
+    width: 1rem;
+
+    /* Also needed for space (tweak if needed) */
+    margin-left: -1rem;
+    /* Also needed for space (tweak if needed) */
+}
+
+.Rtable--4cols>.Rtable-cell-2 {
+    width: 10%;
+}
+
+/* .Rtable--5cols>.Rtable-cell {
+    width: 20%;
+}
+
+.Rtable--6cols>.Rtable-cell {
+    width: 16.6%;
+} */
+
+/* .container {
+    width: 1199px;
+} */
+
+.layout-table {
+    width: 1320px;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.layout-table>tbody>tr>th,
+.layout-table>tbody>tr>td,
+.layout-table>tr>th,
+.layout-table>tr>td {
+    border: 5px solid white;
+}
+
+.site-header,
+.site-search {
+    background-color: #861f41;
+    padding: 1rem;
+}
+
+.site-header .nav-link,
+.site-header .navbar-brand {
+    color: white;
+}
+
+.site-header .navbar-brand:hover {
+    text-decoration: underline;
+}
+
+.wrapper {
+    background-color: #9D987B;
+}
+
+.main {
+    background-color: white;
+    background-color: #F5F5EC;
+    padding: 1rem;
+}
+
+.lessons-heading {
+    background-color: #45677B;
+    color: white;
+    padding: 1rem;
+}
+
+.lessons-menu {
+    background-color: #aac5d4;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.lessons-menu .nav-link {
+    color: #003767;
+    border-bottom: 1px solid white;
+}
+
+.lessons-menu .nav-link.active {
+    border-left: .5rem solid white;
+    border-right: .5rem solid white;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+.breadcrumb-menu {
+    background-color: #aac5d4;
+    padding: 1rem;
+}
+
+.col1 {
+    width: 1000px;
+}
+
+/* .col2 {
+    width: 300px;
+} */
+.quote {
+    margin: 0 0 1rem;
+    background: #fff;
+    padding: 1em;
+    border-radius: 1em;
+    border-left: 1rem solid rgb(229, 225, 230);
+}
+
+.quote figcaption,
+.quote .blockquote {
+    margin: 1em;
+}
+
+.quote .blockquote {
+    text-indent: -0.5em;
+}
+
+.quote .blockquote::before {
+    content: open-quote;
+}
+
+.quote .blockquote::after {
+    content: close-quote;
+}
+
+caption {
+    color: #677078;
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+    background-color: #212529;
+    color: white;
+    border: 5px solid white;
+    border-top: none;
+}
+
+button[type="submit"].btn-light:focus {
+    box-shadow: none;
+}
+
+li.current::after {
+    content: " \21E6";
+    /* Hexadecimal for Unicode Leftwards white arrow*/
+    display: inline;
+}
+
+thead {
+    font-weight: bold;
+}

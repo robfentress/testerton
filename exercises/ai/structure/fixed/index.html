@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structuring Things | A11yEx</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/highlight/a11y-dark.css" type="text/css" />
+</head>
+
+<body>
+    <div class="container-fluid gold-bg">
+        <header class="container bg-dark bg-maroon">
+            <div class="skippy visually-hidden-focusable overflow-hidden">
+                <div class="container-xl">
+                    <a class="d-inline-flex p-2 m-1" href="#main">Skip to main content</a>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-maroon" aria-label="Site">
+                <div class="container">
+                    <a class="navbar-brand" href="/">
+                        </svg><span class="fs-4">A11yEx</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class=" me-auto mb-2 mb-lg-0">
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a href="/about/" class="nav-link mx-2">About</a></li>
+                                <li class="nav-item"><a href="/lessons/" class="nav-link mx-2">Lessons</a></li>
+                                <li class="nav-item"><a href="/contact/" class="nav-link mx-2">Contact</a></li>
+                            </ul>
+                        </div>
+                        <form class="d-flex" id="searchForm" action="" method="post">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-light" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <div class="container-fluid gold-bg">
+        <div class="container breadcrumb-wrapper pale-blue-bg pt-3">
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/lessons/">Lessons</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Structuring Things</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="container-fluid gold-bg">
+        <div class="container pale-blue-bg">
+            <div class="row central-wrapper">
+                <nav class="col-12 col-lg-3 lessons-menu p-0 pale-blue-bg" aria-labelledby="lessons-head">
+                    <h2 class="mb-0 h5 p-3 text-white lessons-head" aria-hidden="true" id="lessons-head">Lessons</h2>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link" href="/lessons/fundamentally-accessible/">Fundamentally
+                                Accessible</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/lessons/accessible-ux/">Accessible UX</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"
+                                href="/lessons/structuring-things/">Structuring
+                                Things</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="/lessons/images/">Images</a></li>
+                    </ul>
+                </nav>
+                <main class="col-12 col-lg-9" id="main" tabindex="-1">
+                    <h1>Structuring Things</h1>
+                    <h2 lang="es">¡Enseñame!</h2>
+                    <p>Teach me something, <em lang="es">por favor</em>!</p>
+                    <p>Sure thing! Did you know that the placeholder text for design layouts that begins, <q>lorem
+                            ipsum</q>
+                        is
+                        actually a bastardized version of the following?</p>
+                    <figure class="quote">
+                        <blockquote lang="la" class="blockquote">Sed ut perspiciatis unde omnis iste natus error sit
+                            voluptatem
+                            accusantium
+                            doloremque
+                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                            architecto
+                            beatae
+                            vitae
+                            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+                            fugit,
+                            sed
+                            quia
+                            consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</blockquote>
+                        <figcaption class="blockquote-footer">Section 1.10.32 of <cite><a
+                                    href="http://www.thelatinlibrary.com/cicero/fin1.shtml#10" target="_blank">
+                                            <span lang="la">
+                                                de
+                                                Finibus Bonorum et Malorum
+                                            </span>
+                                            <svg class="bi inline-block align-baseline" width="14" height="14" fill="currentColor" role="img" aria-label="opens in new window">
+                                            <use xlink:href="images/bootstrap-icons.svg#box-arrow-up-right"/>
+                                            </svg>
+                                    </a></cite> by
+                            Cicero
+                        </figcaption>
+                    </figure>
+                    <p>While there are reasons why designers do this, it does make it harder for those testing out
+                        designs
+                        using
+                        screen
+                        reading software to make sense of things.</p>
+                    <p>If I were creating an example, I'd edit that text to use the English translation, like so:</p>
+                    <figure class="quote">
+                        <blockquote class="blockquote"> <del><span class="visually-hidden">begin deleted text</span>
+                                <span lang="la">
+                                    Sed ut
+                                    perspiciatis
+                                    unde omnis iste natus error sit voluptatem
+                                    accusantium doloremque
+                                    laudantium,
+                                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+                                    beatae
+                                    vitae
+                                    dicta
+                                    sunt
+                                    explicabo.
+                                </span><span class="visually-hidden">end deleted text</span></del> <ins><span
+                                    class="visually-hidden">begin
+                                    inserted text</span>But I must explain to you how all this mistaken idea of
+                                denouncing
+                                pleasure
+                                and
+                                praising pain was born and I will give you a complete account of the system, and expound
+                                the
+                                actual
+                                teachings of the great explorer of the truth, the master-builder of human
+                                happiness.<span class="visually-hidden">end inserted text</span></ins>
+                        </blockquote>
+                    </figure>
+                    <p class="h3 text-center fst-italic"><span aria-hidden="true">&mdash;</span> Much better, don't you
+                        think? <span aria-hidden="true">&mdash;</span></p>
+                    <h3>Download Cicero</h3>
+                    <p>You can download the complete version of Cicero's classic work in Latin and English in <b>
+                            <span class="bi bi-file-pdf" aria-hidden="true"></span> PDF
+                        </b>, <b>
+                            <span class="bi bi-file-richtext" aria-hidden="true"></span> EPUB
+                        </b>, and <b><span class="bi bi-file-text" aria-hidden="true"></span> TXT</b>
+                        file formats below:</p>
+                    <ul class="download-list mb-4">
+                        <li class="border-bottom pb-1 mb-1">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6"><cite lang="la">de
+                                            Finibus Bonorum et Malorum</cite> (Latin)</div>
+                                    <div class="col-auto">
+                                        <a href="/documents/lorem/latin.pdf">
+                                            <span class="bi bi-file-pdf" aria-hidden="true"></span>
+                                            PDF
+                                        </a>
+                                    </div>
+                                    <div class="col-auto col-me-auto">
+                                        <a href="/documents/lorem/latin.epub">
+                                            <span class="bi bi-file-earmark-richtext" aria-hidden="true"></span>
+                                            EPUB
+                                        </a>
+                                    </div>
+                                    <div class="col-auto col-me-auto">
+                                        <a href="/documents/lorem/latin.txt">
+                                            <span class="bi bi-file-earmark-text" aria-hidden="true"></span>
+                                            TXT
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="border-bottom pb-1 mb-1">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6"><cite lang="la">On the Ends of Good and Evil</cite>
+                                        (English)
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="/documents/lorem/english.pdf">
+                                            <span class="bi bi-file-pdf" aria-hidden="true"></span>
+                                            <span>PDF</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-auto col-me-auto">
+                                        <a href="/documents/lorem/english.epub">
+                                            <span class="bi bi-file-earmark-richtext" aria-hidden="true"></span>
+                                            <span>EPUB</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-auto col-me-auto">
+                                        <a href="/documents/lorem/latin.txt">
+                                            <span class="bi bi-file-earmark-text" aria-hidden="true"></span>
+                                            TXT
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <hr>
+                    <h2 id="structHead">Structure-Related Success Criteria</h2>
+                    <p>Here are the Web Content Accessibility Guidelines (WCAG) success criteria having to do with
+                        structure.</p>
+                    <table class="table table-bordered structure-table" tabindex="0" aria-labelledby="structHead">
+                        <thead>
+                            <tr>
+                                <th scope="col">Success Criterion</th>
+                                <th scope="col">Guideline</th>
+                                <th scope="col">Level</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1.3.1 Info and Relationships</th>
+                                <td>1.3 – Adaptable</td>
+                                <td>A</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1.3.2 Meaningful Sequence</th>
+                                <td>1.3 – Adaptable</td>
+                                <td>A</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1.3.3 Sensory Characteristics</th>
+                                <td>1.3 – Adaptable</td>
+                                <td>A</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1.4.8 Visual Presentation</th>
+                                <td>1.4 – Distinguishable</td>
+                                <td>AAA</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1.4.9 Images of Text (No Exception)</th>
+                                <td>1.4 – Distinguishable</td>
+                                <td>AAA</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2.4.1 Bypass Blocks</th>
+                                <td>2.4 – Navigable</td>
+                                <td>A</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2.4.2 Page Titled</th>
+                                <td>2.4 – Navigable</td>
+                                <td>A</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2.4.3 Focus Order</th>
+                                <td>2.4 – Navigable</td>
+                                <td>A</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2.4.5 Multiple Ways</th>
+                                <td>2.4 – Navigable</td>
+                                <td>AA</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2.4.10 Section Headings</th>
+                                <td>2.4 – Navigable</td>
+                                <td>AAA</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3.2.4 Consistent Identification</th>
+                                <td>3.2 – Predictable</td>
+                                <td>AA</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4.1.1 Parsing</th>
+                                <td>4.1 – Compatible</td>
+                                <td>A</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4.1.2 Name, Role, Value</th>
+                                <td>4.1 – Compatible</td>
+                                <td>A</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h2>Who is affected?</h2>
+                    <p>While poor coding can affect all visitors to your site to <em>some</em> degree or another, some
+                        accessibility
+                        issues can make it almost impossible for people with certain kinds of disabilities to access
+                        needed
+                        information and functionality. This table shows who is <strong>most</strong> affected by certain
+                        accessibility
+                        issues.</p>
+                    <div class="table-responsive" tabindex="0">
+                        <table class="table table-striped">
+                            <caption>Disabilities most affected by accessibility issues</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Accessibility Issue</th>
+                                    <th scope="col">Blindness</th>
+                                    <th scope="col">Deafness</th>
+                                    <th scope="col">Cognitive</th>
+                                    <th scope="col">Motor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">No alt text for images</th>
+                                    <td>Most Affected</td>
+                                    <td> - </td>
+                                    <td> - </td>
+                                    <td> - </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">No captions for video</th>
+                                    <td> - </td>
+                                    <td>Most Affected</td>
+                                    <td> - </td>
+                                    <td> - </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">No descriptions for videos</th>
+                                    <td>Most Affected</td>
+                                    <td> - </td>
+                                    <td> - </td>
+                                    <td> - </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Animations that can't be stopped</th>
+                                    <td> - </td>
+                                    <td> - </td>
+                                    <td>Most Affected</td>
+                                    <td> - </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Screen orientation locked</th>
+                                    <td> - </td>
+                                    <td> - </td>
+                                    <td> - </td>
+                                    <td>Most Affected</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr>
+                    <h2>Level A Success Criteria Under Perceivable</h2>
+                    <ol>
+                        <li><b>Perceivable:</b> Information and user interface components must be presentable to users
+                            in
+                            ways they can perceive.
+                            <ol>
+                                <li><b>Text Alternatives:</b> Provide text alternatives for any non-text content so that
+                                    it
+                                    can be
+                                    changed into other forms people need, such as large print, braille, speech, symbols
+                                    or
+                                    simpler language.
+                                    <ol>
+                                        <li><b>Non-text Content:</b> All non-text content that is presented to the user
+                                            has
+                                            a text
+                                            alternative that serves the equivalent purpose &hellip;</li>
+                                    </ol>
+                                </li>
+                                <li><b>Time-based Media:</b> Provide alternatives for time-based media.
+                                    <ol>
+                                        <li><b>Audio-only and Video-only (Prerecorded):</b> For prerecorded audio-only
+                                            and
+                                            prerecorded video-only media &hellip;</li>
+                                        <li><b>Captions (Prerecorded):</b> Captions are provided for all prerecorded
+                                            audio
+                                            content in synchronized media, except when the media is a media alternative
+                                            for
+                                            text and is clearly labeled as such.</li>
+                                        <li><b>Audio Description or Media Alternative (Prerecorded):</b> An alternative
+                                            for
+                                            time-based media or audio description of the prerecorded video content is
+                                            provided for synchronized media, except when the media is a media
+                                            alternative
+                                            for text and is clearly labeled as such.</li>
+                                    </ol>
+                                </li>
+                                <li><b>Adaptable:</b> Create content that can be presented in different ways (for
+                                    example
+                                    simpler layout) without losing information or structure.
+                                    <ol>
+                                        <li><b>Info and Relationships:</b> Information, structure, and relationships
+                                            conveyed through presentation can be programmatically determined or are
+                                            available in text.</li>
+                                        <li><b>Meaningful Sequence:</b> When the sequence in which content is presented
+                                            affects its meaning, a correct reading sequence can be programmatically
+                                            determined.</li>
+                                        <li><b>Sensory Characteristics:</b> Instructions provided for understanding and
+                                            operating content do not rely solely on sensory characteristics of
+                                            components
+                                            such as shape, color, size, visual location, orientation, or sound.</li>
+                                    </ol>
+                                </li>
+                                <li><b>Distinguishable:</b> Make it easier for users to see and hear content including
+                                    separating foreground from background.
+                                    <ol>
+                                        <li><b>Use of Color:</b> Color is not used as the only visual means of conveying
+                                            information, indicating an action, prompting a response, or distinguishing a
+                                            visual element.</li>
+                                        <li><b>Audio Control:</b> If any audio on a Web page plays automatically for
+                                            more
+                                            than 3 seconds, either a mechanism is available to pause or stop the audio,
+                                            or a
+                                            mechanism is available to control audio volume independently from the
+                                            overall
+                                            system volume level.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                    <h3>Test Cycle</h3>
+                    <ol class="d-lg-flex flex-lg-row align-content-lg-stretch cycle">
+                        <li>Requirement Analysis</li>
+                        <li>Test Planning</li>
+                        <li>Test Case Development</li>
+                        <li>Test Environment Setup</li>
+                        <li>Test Execution</li>
+                        <li>Test Cycle Closure</li>
+                    </ol>
+                    <h3>When would you test during WCAG-EM Process?</h3>
+                    <p>The <a href="https://www.w3.org/TR/WCAG-EM/">Web Content
+                                Accessibility Guidelines Evaluation Methodology 
+                    <svg class="bi inline-block align-baseline" width="14" height="14" fill="currentColor"  role="img" aria-label="opens in new window">
+                    <use xlink:href="images/bootstrap-icons.svg#box-arrow-up-right"/>
+                    </svg></a>
+                        (WCAG-EM) describes a procedure to evaluate websites and includes considerations to guide
+                        evaluators and to
+                        promote good practice. In the list which follows, the step in the WCAG-EM process where
+                        you would actually be
+                        testing the accessibility of a page is <i>Audit the Selected Sample</i>.</p>
+                    <ol>
+                        <li>Define the Evaluation Scope</li>
+                        <li>Explore the Target Website</li>
+                        <li>Select a Representative Sample</li>
+                        <li class="current">Audit the Selected Sample <span class="visually-hidden">(where testing occurs)</span></li>
+                        <li>Report the Evaluation Findings</li>
+                    </ol>
+                    <h3>Compliance</h3>
+                    <div id="complianceDesc" class="visually-hidden">First row contains Guidelines. Second contains
+                        Success
+                        Criteria. After that
+                        first column contains the page name.</div>
+                    <div class="table-responsive mb-4" tabindex="0">
+                        <table class="table table-sm table-bordered table-striped table-irregular complex-table"
+                            aria-describedby="complianceDesc">
+                            <caption>Compliance with Level A Perceivable Success Criteria</caption>
+                            <col>
+                            <colgroup span="3"></colgroup>
+                            <colgroup span="3"></colgroup>
+                            <colgroup span="2"></colgroup>
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <th colspan="3" scope="colgroup">1.2 – Time-based Media</th>
+                                    <th colspan="3" scope="colgroup">1.3 – Adaptable</th>
+                                    <th colspan="2" scope="colgroup">1.4 – Distinguishable</th>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <th scope="col">1.2.1
+                                        Audio-only and Video-only (Prerecorded)
+                                    </th>
+                                    <th scope="col">1.2.2
+                                        Captions (Prerecorded)
+                                    </th>
+                                    <th scope="col">1.2.3
+                                        Audio Description or Media Alternative (Prerecorded)</th>
+                                    <th scope="col">1.3.1
+                                        Info and Relationships</th>
+                                    <th scope="col">1.3.2
+                                        Meaningful Sequence</th>
+                                    <th scope="col">1.3.3
+                                        Sensory Characteristics</th>
+                                    <th scope="col">1.4.1
+                                        Use of Color</th>
+                                    <th scope="col">1.4.2
+                                        Audio Control</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Home Page</th>
+                                    <td>Fail</td>
+                                    <td>Inapplicable</td>
+                                    <td>Pass</td>
+                                    <td>Pass</td>
+                                    <td>Pass</td>
+                                    <td>Pass</td>
+                                    <td>Fail</td>
+                                    <td>Fail</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"> About Us</th>
+                                    <td>Pass</td>
+                                    <td>Pass</td>
+                                    <td>Pass</td>
+                                    <td>Fail</td>
+                                    <td>Inapplicable</td>
+                                    <td>Pass</td>
+                                    <td>Fail</td>
+                                    <td>Fail</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Products</th>
+                                    <td>Pass</td>
+                                    <td>Pass</td>
+                                    <td>Fail</td>
+                                    <td>Inapplicable</td>
+                                    <td>Pass</td>
+                                    <td>Pass</td>
+                                    <td>Fail</td>
+                                    <td>Fail</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Contact Us</th>
+                                    <td>Fail</td>
+                                    <td>Pass</td>
+                                    <td>Pass</td>
+                                    <td>Inapplicable</td>
+                                    <td>Pass</td>
+                                    <td>Pass</td>
+                                    <td>Fail</td>
+                                    <td>Fail</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3>Captions Example</h3>
+                    <p>One way that captions can be made available for video is by using a captions track like so:</p>
+                    <pre>
+                            <code class="language-html" tabindex="0">&lt;track kind=&quotcaptions&quot; src=&quot;media/wwa_captions_en.vtt&quot; srclang=&quot;en&quot; label=&quot;English captions&quot;/&gt;</code>
+                        </pre>
+                    <hr>
+                    <h2>Videos about semantics</h2>
+                    <h3>Why headings and landmarks are so important?</h3>
+                    <p>In this video, A11yCast's Rob Dodson talks about the important role headings and landmarks play
+                        in
+                        accessible navigation.</p>
+                    <div class="ratio ratio-16x9 mb-4">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/vAAzdi1xuUY"
+                            title="YouTube video on why headings and landmarks are so important" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            class="video-container iframe" allowfullscreen></iframe>
+                    </div>
+                    <h3>Why do semantics matter?</h3>
+                    <p>In this video, A11yCast's Rob Dodson talks about why semantics matter in accessibility and how
+                        they
+                        affect screen readers.</p>
+                    <div class="ratio ratio-16x9 mb-4">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/g2tzEil5TL0"
+                            title="YouTube video on why semantics matter" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            class="video-container iframe" allowfullscreen></iframe>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid gold-bg">
+        <div class="container text-center text-white bg-dark py-2 copyright-wrapper">
+            © 2021 Virginia Tech
+        </div>
+    </footer>
+    <script src="scripts/highlight/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <script src="scripts/script.js"></script>
+</body>
+
+
+</html>

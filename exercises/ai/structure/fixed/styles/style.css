@@ -1,0 +1,203 @@
+body {
+    color:#000;
+}
+.gold-bg {
+    background-color: #9D987B;
+}
+
+.bg-maroon {
+    background-color: #861f41!important;
+}
+
+.pale-blue-bg {
+    background-color: #aac5d4;
+}
+
+header {
+    border: 5px solid white;
+}
+
+.skippy a {
+    color: white;
+}
+
+
+.navbar-dark .navbar-nav .nav-link, .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+    color: rgba(255, 255, 255, 1);
+}
+.navbar-dark .navbar-brand:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: #212529;
+}
+
+#main {
+    background-color: #F5F5EC;
+}
+
+.lessons-menu {
+    border-bottom: 5px solid white;
+}
+
+.lessons-menu .nav-link {
+    border-bottom: 1px solid rgba(255, 255, 255, .8);
+}
+
+@media (min-width: 992px) {
+    #main {
+        border-left: 5px solid white;
+    }
+    .lessons-menu {
+        border:none;
+    }
+    ol.cycle {
+        list-style:none;
+        counter-reset: num;
+        padding: 0;
+    }
+    
+    ol.cycle li {
+        counter-increment: num;
+        padding-right: 1em;
+        flex: 1;
+    }
+    
+    ol.cycle li:last-child {
+        padding-right:0;
+    }
+
+    ol.cycle li::before {
+        content: counter(num) " ";
+        font-weight: bold;
+        display:block;
+    }
+}
+a:hover, .breadcrumb a, .nav-link:hover {
+    text-decoration:underline;    
+}
+a, a:hover {
+    color:#861f41;
+}
+.skippy a {
+    color: white;
+    text-decoration:none;
+}
+.skippy a:hover {
+    color:white;
+}
+.nav-link, .nav-link:focus, .breadcrumb a, .lessons-menu a:hover {
+    color:#861f41;
+}
+a:hover, .lessons-menu a:hover, .breadcrumb a:hover {
+    text-decoration: underline;
+    color: #1A3E6F;
+}
+*:focus, a:focus, .nav-link:focus, button.btn.btn-secondary:focus {
+    outline: 0.2rem dotted white;
+    box-shadow: 0 0 0 .25rem #c64600;
+    -webkit-box-shadow: 0 0 0 .25rem #c64600;
+}
+
+a>.bi {
+    text-decoration: none;
+}
+
+.form-control {
+    border-color: #909290;
+}
+
+.navbar-dark .navbar-toggler {
+    color: rgba(255, 255, 255, 1);
+    border-color: rgba(255, 255, 255, 1);
+}
+
+a.nav-link.active {
+    border-left: .2em solid white;
+    border-right: .2em solid white;
+    padding-left: .8em;
+}
+.download-list li::marker {
+    color: #861f41;
+}
+
+.quote {
+    margin: 0 0 1rem;
+    background: #fff;
+    padding: 1em;
+    border-radius: 1em;
+    border: 1px solid rgb(229, 225, 230);
+    border-left-width: 1rem;
+}
+
+.quote figcaption,
+.quote .blockquote {
+    margin: 1em;
+}
+
+.quote .blockquote {
+    text-indent: -0.5em;
+}
+
+.quote .blockquote::before {
+    content: open-quote;
+}
+
+.quote .blockquote::after {
+    content: close-quote;
+}
+.blockquote-footer {
+    color:#151719;
+}
+
+.structure-table.table-bordered>:not(caption)>* {
+    border-width: .4em 0;
+    background-color: rgb(229, 225, 230);
+    border-color: rgb(255, 255, 255);
+}
+.structure-table.table-bordered>:not(caption)>*>* {
+    border-width: 0 .4em;
+    background-color: rgb(229, 225, 230);
+    border-color: rgb(255, 255, 255);
+}
+caption, .figure-caption {
+    color: #687178;
+}
+.lessons-head {
+    background-color: #45677B;
+    border-bottom: 5px solid white;
+}
+.central-wrapper, .copyright-wrapper, .breadcrumb-wrapper {
+    border: 5px solid white;
+    border-top: none;
+}
+
+li.current::after {
+    content: " \21E6";
+    /* Hexadecimal for Unicode Leftwards white arrow*/
+    display: inline;
+}
+
+    .form-control:focus {
+        color: #212529;
+        background-color: #fff;
+        border-color: #86b7fe;
+        outline: 0.2rem dotted white;
+        box-shadow: 0 0 0 .25rem #c64600;
+    }
+    .btn-check:focus+.btn-light, .btn-light:focus {
+        color: #000;
+        background-color: #f9fafb;
+        border-color: #f9fafb;
+        outline: 0.2rem dotted white;
+        box-shadow: 0 0 0 .25rem #c64600;
+    }
+    .structure-table th[scope="col"] {
+        font-variant: small-caps;
+        background-color: #2b2b2b;
+        color: #fff;
+    }
+    .structure-table th[scope="row"] {
+        font-weight: 500;
+    }
