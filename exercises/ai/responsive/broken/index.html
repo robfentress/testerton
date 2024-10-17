@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <title>A11yEx | Imagine Responsiveness</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+</head>
+
+<body onload="drawPieChart()">
+    <div class="container-fluid wrapper">
+        <table class="layout-table" role="presentation">
+            <tr>
+                <td class="col1 site-header">
+
+                    <div class="d-flex flex-row align-items-center">
+                        <a class="navbar-brand" href="#">
+                            <span class="fs-4">A11yEx</span>
+                        </a>
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Lessons</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+                <td class="col2 site-search">
+                    <form class="d-flex">
+                        <input accesskey="s" class="form-control me-2" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <button class="btn btn-light" type="submit">Go</button>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td class="col1 breadcrumb-menu">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Lessons</a></li>
+                            <li class="breadcrumb-item" aria-current="page">Imagine Responsiveness</li>
+                        </ol>
+                    </nav>
+                </td>
+                <td class="col2 lessons-heading">Lessons</td>
+            </tr>
+            <tr>
+                <td class="col1 main">
+                    <h1>Imagine Responsiveness</h1>
+                    <h2>What do you think of?</h2>
+                    <p>When you try to picture responsiveness, which of the following first comes to mind?</p>
+                    <p class="fw-bold">This:
+                    <div class="mb-3"><img src="images/first_responders.jpeg"
+                            alt="Picture of first responders at the site of a train collision" class="border"></div>
+                    </p>
+                    <p class="fw-bold">Or this:</p>
+                    <div class="mb-3"><img src="images/media_query.png" alt="Formatted code showing media queries"
+                            class="border"></div>
+                    <p>As a web developer, you should be thinking in terms of the latter, by <em>responding</em> to
+                        different viewport sizes using media queries.</p>
+                    <h2 class="mt-5"><a href="https://dequeuniversity.com/rules/axe/4.3/list">Appropriate Nesting</a>
+                    </h2>
+                    <p>It is important that elements be nested appropriately. For instance, only certain kinds of
+                        elements are allowed as children of <code>ul</code> elements. The following figures
+                        show correct and incorrect ways of creating nested lists. Elements outlined in red are not
+                        allowed children of the parent shown.</p>
+                    <div class="clearfix">
+                        <figure class="figure position-absolute" role="figure" aria-labelledby="cap1">
+                            <ul class="tree">
+                                <li>
+                                    <code>&lt;ul&gt;</code>
+                                    <ul>
+                                        <li>
+                                            <code>&lt;li&gt;</code>
+                                            <ul>
+                                                <li>
+                                                    <code>&lt;ul&gt;</code>
+                                                    <ul>
+                                                        <li>
+                                                            <code>&lt;li&gt;</code>
+                                                        </li>
+                                                        <li>
+                                                            <code>&lt;li&gt;</code>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <code>&lt;li&gt;</code>
+                                            <ul>
+                                                <li>
+                                                    <code>&lt;ul&gt;</code>
+                                                    <ul>
+                                                        <li>
+                                                            <code>&lt;li&gt;</code>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <code>&lt;li&gt;</code>
+                                            <ul>
+                                                <li>
+                                                    <code>&lt;ul&gt;</code>
+                                                    <ul>
+                                                        <li>
+                                                            <code>&lt;li&gt;</code>
+                                                        </li>
+                                                        <li>
+                                                            <code>&lt;li&gt;</code>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <figcaption class="figure-caption position-relative adjusted-caption" id="cap1">Figure 1:
+                                Nested Lists
+                                Example</figcaption>
+                        </figure>
+                        <figure class="figure float-end" role="figure" aria-labelledby="cap2">
+                            <ul class="tree" role="list">
+                                <li role="listitem">
+                                    <code>&lt;ul&gt;</code>
+                                    <ul role="list">
+                                        <li role="listitem">
+                                            <code>&lt;li&gt;</code>
+                                            <ul role="list">
+                                                <li role="listitem">
+                                                    <code>&lt;ul&gt;</code>
+                                                    <ul role="list">
+                                                        <li role="listitem">
+                                                            <code>&lt;li&gt;</code>
+                                                        </li role="listitem">
+                                                        <li role="listitem">
+                                                            <code>&lt;li&gt;</code>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <code class="incorrect">&lt;ul&gt;</code>
+                                            <ul role="list">
+                                                <li role="listitem">
+                                                    <code>&lt;li&gt;</code>
+                                                </li>
+                                                <li role="listitem">
+                                                    <code>&lt;li&gt;</code>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <code class="incorrect">&lt;ul&gt;</code>
+                                            <ul role="list">
+                                                <li role="listitem">
+                                                    <code>&lt;li&gt;</code>
+                                                </li>
+                                                <li role="listitem">
+                                                    <code>&lt;li&gt;</code>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <figcaption class="figure-caption position-relative adjusted-caption" id="cap2">Figure 2:
+                                Nested Lists
+                                Non-Example</figcaption>
+                        </figure>
+                    </div>
+
+                    <h2><a href="https://www.w3.org/WAI/standards-guidelines/wcag/docs/">Different documents for
+                            different purposes</a></h2>
+                    <p>
+                        The resources, <a href="http://www.w3.org/WAI/WCAG21/quickref/">How to Meet WCAG 2.0</a>, <a
+                            href="https://www.w3.org/TR/WCAG20/">WCAG 2.0</a>, <a
+                            href="https://www.w3.org/TR/WCAG20-TECHS/">Techniques for WCAG 2.0</a>, and <a
+                            href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/">Understanding WCAG 2.0</a> serve
+                        different
+                        purposes.
+                    </p>
+
+                    <figure class="figure" role="figure" aria-labelledby="cap3">
+                        <img src="images/wcag20docs.png"
+                            alt="Customizable Quick Reference, How to Meet WCAG 2.0 • Guidelines • Success Criteria • Techniques | WCAG 2.0 • Principles • Guidelines • Success Criteria • Conformance | Instructions for Developers, Techniques for WCAG 2.0 (HTML, css, scripting, ...) • Browser and assistive technology support notes • Examples, code • Resources • Test procedures | Detailed Reference, Understanding WCAG 2.0 • Intent • Benefits to people with disabilities • Example scenarios • Resources • Techniques "
+                            width="650">
+                        <figcaption class="figure-caption" id="cap3">Figure 3: WCAG 2.0 documents. WCAG 2.1 has the same
+                            documents.</figcaption>
+                    </figure>
+
+
+                    <h2 class="mt-4">Screen orientation</h2>
+                    <p>Some of the pages on this site only display correctly on mobile devices when they are in a
+                        particular orientation. Beside each page listed below, you'll see one or more smartphone icons.
+                        When you
+                        see the icon in the upright position, it signals support for portait mode. When rotated 90
+                        degrees, it means landscape mode works too.</p>
+                    <div class="d-flex orientation-list mb-3">
+                        <div>
+                            <ul class="list-group">
+                                <li class="list-group-item"><a href="#">Fundamentally
+                                        Accessible</a></li>
+                                <li class="list-group-item"><a href="#">Accessible
+                                        UX</a></li>
+                                <li class="list-group-item">
+                                    <a href="#">Structuring
+                                        Things</a>
+                                </li>
+                                <li class="list-group-item"><a href="#">Imagine
+                                        Responsiveness</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <svg class="bi" width="1em" height="1em" fill="currentColor" role="img"
+                                        aria-label="Orientation">
+                                        <use xlink:href="images/bootstrap-icons.svg#phone"></use>
+                                    </svg>
+                                </li>
+                                <li class="list-group-item">
+                                    <svg class="bi" width="1em" height="1em" fill="currentColor" role="img"
+                                        aria-label="Orientation">
+                                        <use xlink:href="images/bootstrap-icons.svg#phone"></use>
+                                    </svg>
+                                </li>
+                                <li class="list-group-item">
+                                    <svg class="bi" width="1em" height="1em" fill="currentColor" role="img"
+                                        aria-label="Orientation">
+                                        <use xlink:href="images/bootstrap-icons.svg#phone"></use>
+                                    </svg>
+                                </li>
+                                <li class="list-group-item">
+                                    <svg class="bi" width="1em" height="1em" fill="currentColor" role="img"
+                                        aria-label="Orientation">
+                                        <use xlink:href="images/bootstrap-icons.svg#phone"></use>
+                                    </svg>
+                                    &nbsp;
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <svg class="bi rotate90" width="1em" height="1em" fill="currentColor" role="img"
+                                        aria-label="Orientation">
+                                        <use xlink:href="images/bootstrap-icons.svg#phone"></use>
+                                    </svg>
+                                </li>
+                                <li class="list-group-item">
+                                    <svg class="bi rotate90" width="1em" height="1em" fill="currentColor" role="img"
+                                        aria-label="Orientation">
+                                        <use xlink:href="images/bootstrap-icons.svg#phone"></use>
+                                    </svg>
+                                </li>
+                                <li class="list-group-item">
+                                    <svg class="bi rotate90" width="1em" height="1em" fill="currentColor" role="img"
+                                        aria-label="Orientation">
+                                        <use xlink:href="images/bootstrap-icons.svg#phone"></use>
+                                    </svg>
+                                </li>
+                                <li class="list-group-item">
+                                    &nbsp;
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h2 class="mt-5">Screen Readers</h2>
+                    <p>Based on the <a href="https://webaim.org/projects/screenreadersurvey9/">most recent WebAIM Screen
+                            Reader User Survey</a>, there are only four major screen readers for desktop operating
+                        systems, with the rest seeing very minimal usage.</p>
+                    <figure class="figure" role="figure" aria-labelledby="cap4">
+                        <canvas id="pie" width="600" height="500" class="bg-white border" role="img" alt="pie chart">
+                            <table>
+                                <caption>Which of the following is your primary desktop/laptop screen reader?</caption>
+                                <tr>
+                                    <th>Screen Reader</th>
+                                    <th># of respondents</th>
+                                    <th>% of respondents</th>
+                                </tr>
+                                <tr>
+                                    <td>JAWS</td>
+                                    <td>832</td>
+                                    <td>53.75</td>
+                                </tr>
+                                <tr>
+                                    <td>NVDA</td>
+                                    <td>476</td>
+                                    <td>30.75</td>
+                                </tr>
+                                <tr>
+                                    <td>VoiceOver</td>
+                                    <td>100</td>
+                                    <td>6.46</td>
+                                </tr>
+                                <tr>
+                                    <td>ZoomText/Fusion</td>
+                                    <td>72</td>
+                                    <td>4.65</td>
+                                </tr>
+                                <tr>
+                                    <td>Other</td>
+                                    <td>68</td>
+                                    <td>4.39</td>
+                                </tr>
+                            </table>
+                        </canvas>
+                        <figcaption class="figure-caption" id="cap4">Figure 4: Desktop/Laptop Screen Reader Prevalence
+                        </figcaption>
+                    </figure>
+
+                </td>
+                <td valign="top" class="col2 lessons-menu">
+                    <ul class="nav flex-column" aria-label="Lessons">
+                        <li class="nav-item"><a class="nav-link" href="#">Fundamentally
+                                Accessible</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Accessible
+                                UX</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Structuring
+                                Things</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Imagine
+                                Responsiveness</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="footer">
+                    © 2021 Virginia Tech
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

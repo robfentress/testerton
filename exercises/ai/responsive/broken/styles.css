@@ -1,0 +1,268 @@
+
+a {
+    color: #861f41;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+    color: #861f41;
+}
+
+h2 a {
+    color: #C64600;
+
+}
+
+
+.nav-link,
+.list-group-item-action {
+    color: #003C71;
+}
+
+.list-group-item-action+.active {
+    border-color: #861f41;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    color: #861f41;
+}
+
+.nav-link:focus {
+    /* text-decoration: underline; */
+    color: #861f41;
+}
+
+header>a {
+    color: #861f41;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: white;
+    background-color: #c64600;
+}
+
+.form-control {
+    border-color: #909290;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, .8);
+}
+
+.navbar-dark .navbar-toggler {
+    color: rgba(255, 255, 255, .8);
+    border-color: rgba(255, 255, 255, .8);
+}
+
+.skippy a {
+    color: white;
+}
+
+.layout-table {
+    width: 950px;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-top: 1em;
+}
+
+.layout-table>tbody>tr>th,
+.layout-table>tbody>tr>td,
+.layout-table>tr>th,
+.layout-table>tr>td {
+    border: 5px solid white;
+}
+
+.site-header,
+.site-search {
+    background-color: #861f41;
+    padding: 1rem;
+}
+
+.site-header .nav-link,
+.site-header .navbar-brand {
+    color: white;
+}
+
+.site-header .navbar-brand:hover {
+    text-decoration: underline;
+}
+
+.wrapper,
+body {
+    background-color: #9D987B;
+}
+
+.main {
+    background-color: #F5F5EC;
+    padding: 1rem;
+}
+
+.lessons-heading {
+    background-color: #45677B;
+    color: white;
+    padding: 1rem;
+}
+
+.lessons-menu {
+    background-color: #aac5d4;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.lessons-menu .nav-link {
+    color: #003767;
+    border-bottom: 1px solid white;
+}
+
+.lessons-menu .nav-link.active {
+    border-left: .5rem solid white;
+    border-right: .5rem solid white;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+.breadcrumb-menu {
+    background-color: #aac5d4;
+    padding: 1rem;
+}
+
+.col1 {
+    width: 700px;
+}
+
+.footer {
+    text-align: center;
+    background-color: #212529;
+    color: white;
+    border: 5px solid white;
+    border-top: none;
+}
+
+button[type="submit"].btn-light:focus {
+    box-shadow: none;
+}
+
+.rotate90 {
+    transform: rotate(90deg);
+}
+
+.orientation-list .list-group {
+    border-radius: 0;
+}
+
+.orientation-list .list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* Based on https://www.cssscript.com/clean-tree-diagram/ */
+.tree,
+.tree ul,
+.tree li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.tree {
+    margin: 0 0 1em;
+    text-align: center;
+}
+
+.tree,
+.tree ul {
+    display: table;
+}
+
+.tree ul {
+    width: 100%;
+}
+
+.tree li {
+    display: table-cell;
+    padding: .5em 0;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.tree li:before {
+    outline: solid 1px #666;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.tree li:first-child:before {
+    left: 50%;
+}
+
+.tree li:last-child:before {
+    right: 50%;
+}
+
+.tree code,
+.tree span {
+    border: solid .1em #666;
+    background-color: white;
+    border-radius: .2em;
+    display: inline-block;
+    margin: 0 .2em .5em;
+    padding: .2em .6em;
+    position: relative;
+
+}
+
+.tree code.incorrect {
+    border-color: red;
+}
+
+.tree ul:before,
+.tree code:before,
+.tree span:before {
+    outline: solid 1px #666;
+    content: "";
+    height: .5em;
+    left: 50%;
+    position: absolute;
+}
+
+.tree ul:before {
+    top: -.5em;
+}
+
+.tree code:before,
+.tree span:before {
+    top: -.55em;
+}
+
+.tree>li {
+    margin-top: 0;
+}
+
+.tree>li:before,
+.tree>li:after,
+.tree>li>code:before,
+.tree>li>span:before {
+    outline: none;
+}
+
+.adjusted-caption {
+    top: -3em;
+}
+@media (orientation: portrait) {
+    html {
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh;
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+}
