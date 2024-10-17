@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <title>Skip Links</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <br>
+    <label for="text-color-picker">Text color:</label>
+    <input type="color" id="text-color-picker" value="#000000">
+    <br>
+    <label for="bg-color-picker">Background color:</label>
+    <input type="color" id="bg-color-picker" value="#ffffff">
+    <br>
+    <label for="text-size-select">Text size:</label>
+    <select id="text-size-select">
+        <option value="16">16px</option>
+        <option value="18">18px</option>
+        <option value="20">20px</option>
+    </select>
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        const text = "Skip links, also known as skip navigation links, are links that are placed at the top of a web page that allow users to bypass the main menu or other elements and jump directly to the main content of the page.";
+        let textColor = "#000000";
+        let bgColor = "#ffffff";
+        let textSize = 22;
+
+        function updateCanvas() {
+            // Set canvas size to fit text
+            ctx.font = `${textSize}px sans-serif`;
+            console.log(ctx.font);
+            canvas.width = ctx.measureText(text).width;
+            canvas.height = textSize * 1.5;
+
+            // Clear canvas and set background color
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw text
+            ctx.fillStyle = textColor;
+            ctx.textBaseline = "top";
+            ctx.fillText(text, 0, 0);
+        }
+
+        // Update canvas when color pickers or select menu change
+        document.getElementById("text-color-picker").addEventListener("input", event => {
+            textColor = event.target.value;
+            updateCanvas();
+        });
+        document.getElementById("bg-color-picker").addEventListener("input", event => {
+            bgColor = event.target.value;
+            updateCanvas();
+        });
+        document.getElementById("text-size-select").addEventListener("change", event => {
+            textSize = event.target.value;
+            updateCanvas();
+        });
+
+        updateCanvas();
+    </script>
+</body>
+
+</html>

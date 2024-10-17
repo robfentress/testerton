@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="pieChart" width="400" height="400"></canvas>
+    <script>
+        const data = [
+            { value: 30, color: "red", label: "Slice 1" },
+            { value: 20, color: "orange", label: "Slice 2" },
+            { value: 10, color: "yellow", label: "Slice 3" },
+            { value: 40, color: "green", label: "Slice 4" }
+        ];
+        const canvas = document.getElementById("pieChart");
+        const ctx = canvas.getContext("2d");
+        let total = 0;
+        data.forEach(slice => {
+            total += slice.value;
+        });
+        let startAngle = 0;
+        for (var i = 0; i < data.length; i++) {
+            let slice = data[i];
+            const angle = (slice.value / total) * 360;
+            ctx.beginPath();
+            ctx.moveTo(200, 200);
+            ctx.arc(200, 200, 200, startAngle, startAngle + angle);
+            ctx.closePath();
+            ctx.fillStyle = slice.color;
+            ctx.fill();
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+            startAngle += angle + 10;
+        }
+        // data.forEach(slice => {
+        //     const angle = (slice.value / total) * 360;
+        //     ctx.beginPath();
+        //     ctx.moveTo(200, 200);
+        //     ctx.arc(200, 200, 200, startAngle, startAngle + angle);
+        //     ctx.closePath();
+        //     ctx.fillStyle = slice.color;
+        //     ctx.fill();
+        //     ctx.lineWidth = 2;
+        //     ctx.strokeStyle = "black";
+        //     ctx.stroke();
+        //     startAngle += angle + 10;
+        // });
+        // startAngle = 0;
+        // data.forEach(slice => {
+        //     const angle = (slice.value / total) * 360;
+        //     const midAngle = startAngle + (angle / 2);
+        //     const x = 200 + (200 * Math.cos(midAngle * Math.PI / 180));
+        //     const y = 200 + (200 * Math.sin(midAngle * Math.PI / 180));
+        //     ctx.font = "14px Arial";
+        //     ctx.textAlign = "center";
+        //     ctx.fillStyle = "black";
+        //     ctx.fillText(slice.label, x, y);
+        //     startAngle += angle + 10
+        // });
+    </script>
+</body>
+
+</html>
