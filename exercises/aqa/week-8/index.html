@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Languages | A11yEx</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <style>
+    body {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .flag {
+      width: 20px;
+      height: 12px;
+      margin-right: .5em;
+      text-decoration: none;
+    }
+
+    .wikitable {
+      background-color: #f8f9fa;
+      color: #202122;
+      margin: 1em 0;
+      border: 1px solid #a2a9b1;
+      border-collapse: collapse;
+    }
+
+    .wikitable>thead {
+      font-weight: bold;
+    }
+
+    .wikitable>tr>th,
+    .wikitable>*>tr>th,
+    .wikitable>tr>.th,
+    .wikitable>*>tr>.th {
+      text-align: center;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .wikitable>tr>th,
+    .wikitable>tr>.th,
+    .wikitable>tr>td,
+    .wikitable>*>tr>th,
+    .wikitable>*>tr>.th,
+    .wikitable>*>tr>td {
+      border: 1px solid #a2a9b1;
+      padding: 0.2em 0.4em;
+    }
+
+    .wikitable>tbody>tr>th {
+      background-color: #f8f9fa;
+      color: #202122;
+      text-align: left;
+    }
+
+    .form-table {
+      border-collapse: collapse;
+    }
+
+    .form-table td,
+    .form-table th {
+      padding: 0;
+    }
+
+    .form-table tr:nth-child(2) td:first-child,
+    .form-table tr:nth-child(2) td:nth-child(3) {
+      width: 2.5em;
+    }
+
+    .form-table tr:nth-child(2) td:nth-child(2) {
+      width: 13em;
+    }
+
+    .form-table tr:nth-child(2) td:nth-child(4) {
+      width: 12em;
+    }
+
+    textarea {
+      width: 100%
+    }
+
+    dfn {
+      font-style: normal;
+      font-weight: bold;
+    }
+
+    .form-control {
+      border-color: #202122;
+    }
+
+    .btn:focus,
+    .form-control:focus {
+      outline: 0.15rem dotted #75787b;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="header">
+    <a href="#main" class="visually-hidden-focusable">Skip to Main Content</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <svg width="60" height="48" fill="currentColor" class="bi bi-code" viewBox="0 0 20 16" version="1.1"
+            id="svg44" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"
+            aria-hidden="true" focusable="false">
+            <defs id="defs48"></defs>
+            <path
+              d="M 7.359132,4.1287058 A 0.61607725,0.61607725 0 1 0 6.4878672,3.257441 L 2.1807674,7.5645407 a 0.61529997,0.61529997 0 0 0 0,0.8712648 L 6.4878672,12.742905 A 0.61607727,0.61607727 0 0 0 7.359132,11.871641 L 3.4864339,8.0001731 Z m 5.281735,0 A 0.61607767,0.61607767 0 0 1 13.512133,3.257441 l 4.3071,4.3070997 a 0.61529997,0.61529997 0 0 1 0,0.8712648 l -4.3071,4.3070995 a 0.61607755,0.61607755 0 0 1 -0.871266,-0.871264 l 3.872699,-3.8714679 z"
+              id="path42" style="stroke-width:1.2306"></path>
+            <g style="fill:currentColor" id="g203" transform="matrix(0.49043823,0,0,0.49043823,6.0762489,4.0754196)"
+              class="d-inline-block align-text-top">
+              <path
+                d="m 9.5,1.5 a 1.5,1.5 0 1 1 -3,0 1.5,1.5 0 0 1 3,0 z M 6,5.5 1.465,5.058 A 0.531,0.531 0 0 1 1.531,4 H 14.47 a 0.531,0.531 0 0 1 0.066,1.058 L 10,5.5 V 9 l 0.452,6.42 A 0.535,0.535 0 0 1 9.399,15.594 L 8.243,9.97 C 8.179,9.718 7.821,9.718 7.757,9.97 L 6.601,15.594 A 0.535,0.535 0 0 1 5.548,15.42 L 6,9 Z"
+                id="path194"></path>
+            </g>
+          </svg>A11yEx</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Imagine this is a nav that appears on every page -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link " href="/aqa/">Tests</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/week-1/">Week 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/week-2/">Week 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/week-3/">Week 3</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/week-4/">Week 4</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+    <aside>
+      To toggle the hiding of the site header, press <kbd>Ctrl</kbd> + <kbd>h</kbd>.
+    </aside>
+    <main id="main">
+      <h1>Languages</h1>
+      <figure class="mt-3 mb-4">
+        <blockquote class="blockquote"
+          cite="https://quotepark.com/works/the-origin-of-consciousness-in-the-breakdown-of-the-bicameral-mind-7678/">
+          For if consciousness is based on language, then it follows that it is of much
+          more
+          recent origin than has
+          been
+          heretofore supposed. Consciousness come after language! The implications of such a position are extremely
+          serious.</blockquote>
+        <figcaption class="blockquote-footer">Julian Jaynes, <cite>The Origin of Consciousness in the Breakdown of the
+            Bicameral Mind</cite>
+        </figcaption>
+      </figure>
+      <h2 id="iso">ISO Language Codes</h2>
+      <p>ISO 639 is a standardized nomenclature used to classify
+        languages. Each language is assigned a two-letter (639-1) and three-letter (639-2 and
+        639-3) lowercase abbreviation, amended in later versions of the nomenclature.
+      </p>
+      <p>This table lists all of:
+      </p>
+      <ul>
+        <li><dfn>ISO 639-1</dfn>: Two-letter codes, one per language for ISO 639 macrolanguage. This is what is used for
+          the
+          <code>lang</code> attribute.
+        </li>
+      </ul>
+      <p>And some of:
+      </p>
+      <ul>
+        <li><dfn>ISO 639-2/T</dfn>: Three-letter codes, for the same languages as 639-1
+        </li>
+        <li><dfn>ISO 639-2/B</dfn>: Three-letter codes, mostly the same as 639-2/T, but with some codes derived from
+          English names
+          rather than native names of
+          languages</li>
+        <li><dfn>ISO 639-3</dfn>: Three-letter codes, the same as 639-2/T for languages, but with distinct codes for
+          each variety
+          of an ISO 639 macrolanguage
+        </li>
+      </ul>
+      <table class="wikitable" aria-labelledby="iso">
+        <thead>
+          <tr>
+            <th scope="col">ISO language name
+            </th>
+            <th scope="col">639-1
+            </th>
+            <th scope="col">639-2/T
+            </th>
+            <th scope="col">639-2/B
+            </th>
+            <th scope="col">639-3
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">English</th>
+            <td>en</td>
+            <td>eng</td>
+            <td>eng</td>
+            <td>eng</td>
+          </tr>
+          <tr>
+            <th scope="row">German</th>
+            <td>de</td>
+            <td>deu</td>
+            <td>ger</td>
+            <td>deu</td>
+          </tr>
+          <tr>
+            <th scope="row">Spanish, Castilian</th>
+            <td>es</td>
+            <td>spa</td>
+            <td>spa</td>
+            <td>spa</td>
+          </tr>
+          <tr>
+            <th scope="row">French</th>
+            <td>fr</td>
+            <td>fra</td>
+            <td>fre</td>
+            <td>fra</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Setting the <code>lang</code> attribute incorrectly</h3>
+      <p>It is <em>very</em> important that you use the correct value for the lang attribute. If
+        you watch/listen to the video below you'll understand why. The same English language text "What will you do when
+        the label
+        comes off, And the plastic's all melted, And the chrome is too soft?"
+        is marked up in paragraphs with <code>es</code>/<code>fr</code>/<code>de</code> <code>lang</code> attribute
+        values. These each effect the way the text in
+        pronounced.</p>
+      <p>
+        Test file used: <a href="http://s.codepen.io/stevef/debug/MyapoQ">CodePen showing
+          what happens when the lang attribute is set incorrectly</a>
+      </p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/0uzxu9dQnuU" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        class="mb-5" title="Video showing effect of lang attribute values on JAWS speech"></iframe>
+      <h2>Translations</h2>
+      <p>How do you say, "Where is the bathroom?" in different languages?</p>
+      <ul>
+        <li>
+          <a href="https://www.google.com/search?q=how+do+you+say+where+is+the+bathroom+in+german"><img src="german.svg"
+              alt="" class="flag" />German</a>: <span lang="de">Wo
+            ist die Toilette? </span>
+        </li>
+        <li>
+          <a href="https://www.google.com/search?q=how+do+you+say+where+is+the+bathroom+in+spanish"><img
+              src="spanish.svg" alt="" class="flag" />Spanish</a>:
+          <span lang="es">¿Dónde está el baño?</span>
+        </li>
+        <li>
+          <a href="https://www.google.com/search?q=how+do+you+say+where+is+the+bathroom+in+french"><img src="french.svg"
+              alt="" class="flag" />French</a>: <span lang="fr">Où
+            se trouvent les toilettes? </span>
+        </li>
+      </ul>
+
+      <h2 class="mt-5" id="germanCountries">Countries Where German is an official Language</h2>
+      <table class="wikitable mb-5" aria-labelledby="germanCountries">
+        <thead>
+          <tr>
+            <th rowspan="2" class="th" scope="col">Country
+            </th>
+            <th rowspan="2" class="th" scope="col">Population
+            </th>
+            <th colspan="2" class="th" scope="col">Speakers
+            </th>
+            <th rowspan="2" class="th" scope="col">Notes
+            </th>
+          </tr>
+          <tr>
+            <th class="th" scope="col">Native
+            </th>
+            <th class="th" scope="col">Second
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>Germany</td>
+            <td>84,900,000</td>
+            <td>75,101,421</td>
+            <td>5,600,000</td>
+            <td>De facto sole nationwide
+              official
+              language
+            </td>
+          </tr>
+          <tr>
+            <td>Belgium</td>
+            <td>11,420,163</td>
+            <td>73,000</td>
+            <td>2,472,746</td>
+            <td>De jure official language
+              in the
+              German speaking community
+            </td>
+          </tr>
+          <tr>
+            <td>Austria</td>
+            <td>8,838,171</td>
+            <td>8,040,960</td>
+            <td>516,000</td>
+            <td>De jure sole nationwide
+              official
+              language
+            </td>
+          </tr>
+          <tr>
+            <td>Switzerland</td>
+            <td>8,508,904</td>
+            <td>5,329,393</td>
+            <td>395,000</td>
+            <td>Co-official language at
+              federal level; de jure sole official language in 17, co-official in 4 cantons (out of 26)
+            </td>
+          </tr>
+          <tr>
+            <td>Luxembourg</td>
+            <td>626,108</td>
+            <td>11,000</td>
+            <td>380,000</td>
+            <td>De jure nationwide
+              co-official
+              language
+            </td>
+          </tr>
+          <tr>
+            <td>Liechtenstein</td>
+            <td>37,370</td>
+            <td>32,075</td>
+            <td>5,200</td>
+            <td>De jure sole
+              nationwide
+              official language
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Free Book</h2>
+      <p>Fill out this form and we'll send you a free book on languages</p>
+      <form action="" method="post" class="row g-3" id="book">
+
+        <div class="col-md-6">
+          <label for="first" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="first" autocomplete="given-name">
+        </div>
+        <div class="col-md-6">
+          <label for="last" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="last" autocomplete="family-name">
+        </div>
+        <div class="col-md-12">
+          <label for="address" class="form-label">Address</label>
+          <textarea type="text" class="form-control" id="address" autocomplete="street-address" rows="3"></textarea>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </main>
+    <footer>
+      <ul class="nav justify-content-center">
+        <li class="nav-item"><a href="legal.html" class="nav-link">Legal Stuff</a></li>
+        <li class="nav-item"><a href="privacy.html" class="nav-link">Privacy Policy</a></li>
+        <li class="nav-item"><a href="security.html" class="nav-link">Security</a></li>
+      </ul>
+    </footer>
+    <script>
+      let hideme = document.getElementById("header");
+      document.addEventListener("keydown", (evt) => {
+        if (evt.key === "h" && evt.ctrlKey) {
+          if (hideme.hasAttribute("hidden")) {
+            hideme.removeAttribute("hidden");
+          } else {
+            hideme.setAttribute("hidden", "hidden");
+          }
+        }
+      });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
