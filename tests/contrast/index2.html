@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Advanced Image Containers with Masks</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- First Image Container: Text Mask with Bottom-Left Position -->
+    <div class="image-container text-mask">
+      <img
+        src="https://via.placeholder.com/800x500?text=Image+1"
+        alt="A serene lakeside at sunset"
+      />
+      <div class="mask mask-bottom-left">
+        <p>.text-mask > .mask.mask-bottom-left</p>
+      </div>
+    </div>
+
+    <!-- Interleaved Text -->
+    <div class="interleaved-text">
+      <h2>About the Location</h2>
+      <p>
+        Lake Serenity is renowned for its breathtaking sunsets and tranquil
+        waters. Visitors often come to enjoy the peaceful environment and
+        stunning natural beauty.
+      </p>
+    </div>
+
+    <!-- Second Image Container: Full Mask -->
+    <div class="image-container full-mask">
+      <img
+        src="https://via.placeholder.com/800x500?text=Image+2"
+        alt="Majestic mountain range with snow-capped peaks"
+      />
+      <div class="mask">
+        <p>.full-mask > .mask</p>
+      </div>
+    </div>
+
+    <!-- More Interleaved Text -->
+    <div class="interleaved-text">
+      <h2>Exploring the Mountains</h2>
+      <p>
+        The surrounding mountains offer numerous hiking trails for enthusiasts
+        of all levels. From easy walks to challenging climbs, there's something
+        for everyone to experience.
+      </p>
+    </div>
+
+    <!-- Third Image Container: Full-Width Image with Text Mask in Top-Right -->
+    <div class="image-container text-mask full-width">
+      <img
+        src="https://via.placeholder.com/1200x600?text=Image+3"
+        alt="Dense forest with sunlight filtering through the trees"
+      />
+      <div class="mask mask-top-right">
+        <p>text-mask.full-width > .mask.mask-top-right</p>
+      </div>
+    </div>
+
+    <!-- Interleaved Text -->
+    <div class="interleaved-text">
+      <h2>Forest Trails</h2>
+      <p>
+        The dense forest offers a serene escape from the hustle and bustle of
+        city life. Walk among towering trees and listen to the sounds of nature
+        as you explore the various trails.
+      </p>
+    </div>
+
+    <!-- Fourth Image Container: Full-Width Image with Full Mask -->
+    <div class="image-container full-mask full-width">
+      <img
+        src="https://via.placeholder.com/1200x600?text=Image+4"
+        alt="Vast desert landscape with rolling dunes"
+      />
+      <div class="mask">
+        <p>.full-mask.full-width > .mask</p>
+      </div>
+    </div>
+
+    <!-- Fifth Image Container: Text Mask with Center Position -->
+    <div class="image-container text-mask">
+      <img
+        src="https://via.placeholder.com/800x500?text=Image+5"
+        alt="Vibrant coral reef under the sea"
+      />
+      <div class="mask mask-center">
+        <p>.text-mask > .mask.mask-center</p>
+      </div>
+    </div>
+
+    <!-- Interleaved Text -->
+    <div class="interleaved-text">
+      <h2>Underwater Exploration</h2>
+      <p>
+        The coral reefs are teeming with diverse marine life. Snorkeling and
+        diving here offer unforgettable experiences, showcasing the vibrant
+        ecosystem beneath the waves.
+      </p>
+    </div>
+
+    <!-- Sixth Image Container: Text Mask with Top-Left Position -->
+    <div class="image-container text-mask">
+      <img
+        src="https://via.placeholder.com/800x500?text=Image+6"
+        alt="Lush green valley with flowing river"
+      />
+      <div class="mask mask-top-left">
+        <p>.text-mask > .mask.mask-top-left</p>
+      </div>
+    </div>
+
+    <!-- Seventh Image Container: Text Mask with Top-Right Position -->
+    <div class="image-container text-mask">
+      <img
+        src="https://via.placeholder.com/800x500?text=Image+7"
+        alt="Rolling hills under a clear sky"
+      />
+      <div class="mask mask-top-right">
+        <p>.text-mask > .mask.mask-top-right</p>
+      </div>
+    </div>
+
+    <!-- Eighth Image Container: Text Mask with Bottom-Right Position -->
+    <div class="image-container text-mask">
+      <img
+        src="https://via.placeholder.com/800x500?text=Image+8"
+        alt="Golden wheat fields swaying in the breeze"
+      />
+      <div class="mask mask-bottom-right">
+        <p>.text-mask > .mask.mask-bottom-right</p>
+      </div>
+    </div>
+
+    <!-- Ninth Image Container: Text Mask with Center Position -->
+    <div class="image-container text-mask">
+      <img
+        src="https://via.placeholder.com/800x500?text=Image+9"
+        alt="City skyline illuminated at night"
+      />
+      <div class="mask mask-center">
+        <p>.text-mask > .mask.mask-center</p>
+      </div>
+    </div>
+
+    <!-- Tenth Image Container: Full-Width Image with Full Mask and Bottom-Left Position -->
+    <div class="image-container full-mask full-width">
+      <img
+        src="https://via.placeholder.com/1200x600?text=Image+10"
+        alt="Vast desert landscape with rolling dunes"
+      />
+      <div class="mask mask-bottom-left">
+        <p>.full-mask.full-width > .mask.mask-bottom-left</p>
+      </div>
+    </div>
+
+    <!-- Eleventh Image Container: Full-Width Image with Full Mask and Bottom-Right Position -->
+    <div class="image-container full-mask full-width">
+      <img
+        src="https://via.placeholder.com/1200x600?text=Image+11"
+        alt="Vast desert landscape with rolling dunes"
+      />
+      <div class="mask mask-bottom-right">
+        <p>.full-mask.full-width > .mask.mask-bottom-right</p>
+      </div>
+    </div>
+
+    <!-- Twelfth Image Container: Full-Width Image with Full Mask and Top-Left Position -->
+    <div class="image-container full-mask full-width">
+      <img
+        src="https://via.placeholder.com/1200x600?text=Image+12"
+        alt="Vast desert landscape with rolling dunes"
+      />
+      <div class="mask mask-top-left">
+        <p>.full-mask.full-width > .mask.mask-top-left</p>
+        <!-- .full-mask.full-width.mask.mask-top-left -->
+      </div>
+    </div>
+
+    <!-- Thirteenth Image Container: Full-Width Image with Full Mask and Bottom-Right Position -->
+    <div class="image-container full-mask full-width">
+      <img
+        src="https://via.placeholder.com/1200x600?text=Image+13"
+        alt="Vast desert landscape with rolling dunes"
+      />
+      <div class="mask mask-top-right">
+        <p>.full-mask.full-width > .mask.mask-top-right</p>
+      </div>
+    </div>
+  </body>
+</html>

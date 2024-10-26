@@ -1,0 +1,293 @@
+/* styles.css */
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --mask-bg-color: rgba(0, 0, 0, 0.7);
+  --mask-hover-bg-color: rgba(0, 0, 0, 0.8);
+  --mask-text-color: #ffffff;
+  --mask-hover-text-color: #ffeb3b;
+  --mask-padding: 10px 15px;
+  --mask-border-radius: 5px;
+  --font-size-p: 1.2rem;
+  --font-size-p-full-mask: 2rem;
+  --transition-duration: 0.3s;
+}
+
+body {
+  padding: 20px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Image Container Styling */
+.image-container {
+  position: relative; /* Establishes a positioning context for the mask */
+  width: 100%; /* Full width of the parent container */
+  max-width: 800px; /* Default maximum width */
+  margin: 40px auto; /* Centers the container with vertical spacing */
+  overflow: hidden; /* Ensures child elements don't overflow */
+  border-radius: 8px; /* Optional: Rounds the corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+  background-color: #fff; /* Background color for the container */
+}
+
+/* Full-Width Modifier */
+.image-container.full-width {
+  max-width: 100%; /* Removes the max-width restriction */
+}
+
+/* Image Styling */
+.image-container img {
+  display: block; /* Removes the small gap below images */
+  width: 100%; /* Ensures the image fills the container */
+  height: auto; /* Maintains aspect ratio */
+}
+
+/* Mask Styling */
+.image-container .mask {
+  position: absolute; /* Positions the mask relative to the container */
+  background-color: var(
+    --mask-bg-color
+  ); /* Default semi-transparent background */
+  padding: var(--mask-padding); /* Adds spacing inside the mask */
+  border-radius: var(--mask-border-radius); /* Rounded corners for aesthetic */
+  color: var(--mask-text-color); /* White text for better contrast */
+  color: var(--mask-text-color);
+  transition: background-color var(--transition-duration) ease,
+    color var(--transition-duration) ease; /* For hover effects */
+}
+
+/* Text Mask Modifier */
+.image-container.text-mask .mask {
+  pointer-events: none; /* Allows clicks to pass through to the image */
+}
+
+/* Full Mask Modifier */
+.image-container.full-mask .mask {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--mask-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Allows clicks to pass through to the image */
+}
+
+.image-container.full-mask .mask p {
+  font-size: var(--font-size-p-full-mask); /* Larger text for visibility */
+  text-align: center;
+}
+
+/* Text Inside Mask */
+.image-container .mask p {
+  margin: 0; /* Removes default paragraph margins */
+  font-size: var(--font-size-p); /* Default font size */
+}
+
+/* Mask Positioning Classes */
+.mask-top-left {
+  top: 20px;
+  left: 20px;
+}
+.image-container.full-mask .mask-top-left {
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.image-container.full-mask .mask-top-left p {
+  text-align: left;
+}
+
+.mask-top-right {
+  top: 20px;
+  right: 20px;
+}
+.image-container.full-mask .mask-top-right {
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.image-container.full-mask .mask-top-right p {
+  text-align: left;
+}
+
+.mask-bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+.image-container.full-mask .mask-bottom-left {
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+.image-container.full-mask .mask-bottom-left p {
+  text-align: left;
+}
+
+.mask-bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+.image-container.full-mask .mask-bottom-right {
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+.image-container.full-mask .mask-bottom-right p {
+  text-align: left;
+}
+
+.mask-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Interleaved Text Styling */
+.interleaved-text {
+  max-width: 800px; /* Matches the default max-width of image containers */
+  margin: 20px auto; /* Centers the text with vertical spacing */
+  padding: 0 20px; /* Adds horizontal padding */
+}
+
+.interleaved-text h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.interleaved-text p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 850px) {
+  /* FIX */
+  .image-container,
+  .interleaved-text {
+    padding: 0 10px; /* Reduces horizontal padding on smaller screens */
+  }
+
+  .image-container.text-mask .mask {
+    bottom: 15px;
+    left: 15px;
+    padding: 8px 12px;
+  }
+
+  .image-container.text-mask .mask p {
+    font-size: 1rem;
+  }
+
+  .image-container.full-mask .mask p {
+    font-size: 1.5rem;
+  }
+
+  .interleaved-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .interleaved-text p {
+    font-size: 0.95rem;
+  }
+}
+/* Additional Mask Positioning Classes */
+
+/* Mask in the Top-Left Corner */
+.mask-top-left {
+  top: 20px;
+  left: 20px;
+}
+
+/* Mask in the Top-Right Corner */
+.mask-top-right {
+  top: 20px;
+  right: 20px;
+}
+
+/* Mask in the Bottom-Left Corner */
+.mask-bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+
+/* Mask in the Bottom-Right Corner */
+.mask-bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+
+/* Mask in the Center */
+.mask-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* 
+Example is the VT Home Page where there is a "featured media" component.  The featured media displays a still image from a featured video and the title of the video appears as large white text on top of the still image. 
+
+A simplified version of the code would be as follows:
+
+
+ Since it is a CMS component, we can't predict what that still image could be, so they just decided to use white for the text color.  This means that if the still image behind the text is white, the contrast ratio would be 1:1.  This would be the worst case. 
+
+How could you deal with this? 
+
+You could put a black outline around white text, which would mean that the contrast ratio would always be 21:1, which is the highest contrast ratio.
+
+You could put the text in a container whose background color resulted in a contrast ratio of at least 3:1.  Again, if you made this background container black, the contrast ratio would be 21:1.
+
+However, in the case of the "featured media" component on the VT homepage, they wanted to make sure you could see as much of the still image as possible, so they made the `div` that contained the text have a semi-transparent black background.  This means that the contrast ratio of the text relative to its background is still dependent on what the background image is, but the semi-transparent black that is in front of the image has the effect of darkening it.  This means that the worst possible contrast would be if the background image was all white.  In this case though, because of the semi-transparent black background between the text and the image darkens things, the color behind the text would be a dark gray (#4D4D4D).  This means that the contrast ratio would no longer be 1:1, but, rather, 8.5:1.
+
+Let's see how we came up with that number.
+
+First, we have to know how the contrast ratio is determined.  This is based on the relative luminosity of the text color and the background color.  To determine the luminosity of a color, we use a calculation based on the RGB (Red Green Blue) representation of the color.  Each color--red, green, or blue--can be any number between 0 and 255. 
+
+Text Color: #FFFFFF
+
+Background Color: rgba(0,0,0, .7)
+
+Calculated BG Color: #4D4D4D
+
+HOW TO TEST WHETHER CONTRAST WILL BE SUFFICIENT
+- when you know the text color (and it doesn't have an alpha) and the background-color is not a gradient and has an alpha less than 1 and behind that there is a video or an image that you can't predict.
+
+The key thing is that we need to know the color of the worst possible pixel in the image.
+
+Calculate the luminosity of the foreground color using the following formula: 
+0.2126 * R + 0.7152 * G + 0.0722 * B
+
+If 127 or lower (white is 1), do scenario A. If higher than 127 (black is 255) do scenario B
+
+SCENARIO A
+
+In CC Analyzer set the Foreground colour to the background color (including the alpha).
+
+For Background colour, check the "Synchronize colour values" checkbox.
+
+Drag the slider all the way to the left and all the way to the right and leave it on the side that has the highest contrast ratio. (Can probably just set the HEX value to #FFFFFF)
+
+Copy the Foreground colour HEX value into the Background colour HEX field.
+
+Set the Foreground colour to the text color.
+
+
+NEED AN ALGORITHM FOR WHEN TEXT COLOR HAS ALPHA
+NEED AN ALGORITHM FOR WHEN BACKGROUND COLOR IS A LINEAR GRADIENT WHERE NONE OF THE COLORS HAS AN ALPHA
+NEED AN ALGORITHM FOR WHEN BACKGROUND COLOR IS A LINEAR GRADIENT WHERE AT LEAST ONE OF THE COLORS HAS AN ALPHA LESS THAN 1 AND THE RGB IS THE SAME FOR ALL COLORS
+NEED AN ALGORITHM FOR WHEN BACKGROUND COLOR IS A LINEAR GRADIENT WHERE AT LEAST ONE OF THE COLORS HAS AN ALPHA LESS THAN 1 AND THE RGB IS DIFFERENT FOR AT LEAST ONE OF THE COLORS
+
+I need to experiment with turning the saturation to 1.
+*/
