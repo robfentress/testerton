@@ -17,6 +17,9 @@
   --font-size-p: 1.2rem;
   --font-size-p-full-mask: 2rem;
   --transition-duration: 0.3s;
+  --overflowLineHeight: 1.25em;
+  --overflowColor1: rgba(85, 85, 85, 1);
+  --overflowColor2: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -82,6 +85,24 @@ body {
   pointer-events: none; /* Allows clicks to pass through to the image */
 }
 
+/* Full Mask Modifier */
+.image-container.gradient-mask .mask {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.6) 30%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Allows clicks to pass through to the image */
+  padding-top: 2em;
+}
+
 .image-container.full-mask .mask p {
   font-size: var(--font-size-p-full-mask); /* Larger text for visibility */
   text-align: center;
@@ -104,7 +125,7 @@ body {
   flex-direction: column;
 }
 .image-container.full-mask .mask-top-left p {
-  text-align: left;
+  margin-right: auto;
 }
 
 .mask-top-right {
@@ -116,9 +137,9 @@ body {
   justify-content: flex-start;
   flex-direction: column;
 }
-.image-container.full-mask .mask-top-right p {
-  text-align: left;
-}
+/* .image-container.full-mask .mask-top-right p {
+  background-color: #ffeb3b;
+} */
 
 .mask-bottom-left {
   bottom: 20px;
@@ -129,8 +150,20 @@ body {
   justify-content: flex-end;
   flex-direction: column;
 }
-.image-container.full-mask .mask-bottom-left p {
+/* .image-container.full-mask .mask-bottom-left p {
   text-align: left;
+} */
+.image-container.gradient-mask .mask-bottom-left {
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+.image-container.gradient-mask .mask-bottom-left p {
+  overflow: hidden;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .mask-bottom-right {
@@ -141,9 +174,18 @@ body {
   align-items: flex-end;
   justify-content: flex-end;
   flex-direction: column;
+  align-self: flex-start;
 }
-.image-container.full-mask .mask-bottom-right p {
-  text-align: left;
+.image-container.gradient-mask .mask-bottom-right {
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+.image-container.gradient-mask .mask-bottom-right p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .mask-center {
