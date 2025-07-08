@@ -316,7 +316,7 @@
         <div class="form-step" id="success">
             <h2 class="step-title" style="color: var(--success-color);">Registration Complete!</h2>
             <div class="success-message" role="status" aria-live="polite">
-                <span aria-label="Success!">✅</span> Success! Your registration has been submitted.
+                <!-- Success message will be injected here by JavaScript -->
             </div>
             <p>Thank you for completing the registration form. Your information has been submitted successfully.</p>
             <button type="button" id="restart" onclick="location.reload()">Start Over</button>
@@ -369,11 +369,23 @@
 
             // Show current step
             if (step === 'success' || step === 5) {
-                if (successElement) successElement.classList.add('active');
+                if (successElement) {
+                    successElement.classList.add('active');
+                    // Inject the polite live region message only on success
+                    const successMsg = document.querySelector('.success-message');
+                    if (successMsg) {
+                        successMsg.innerHTML = `<span class="success-container"><span aria-hidden="true">✅</span> Success! Your registration has been submitted.</span>`;
+                    }
+                }
             } else {
                 const currentStepElement = document.getElementById(`step${step}`);
                 if (currentStepElement) {
                     currentStepElement.classList.add('active');
+                }
+                // Clear the polite live region if navigating away from success
+                const successMsg = document.querySelector('.success-message');
+                if (successMsg) {
+                    successMsg.innerHTML = '';
                 }
             }
             updateProgress();
