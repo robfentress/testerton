@@ -208,12 +208,12 @@
             <div class="progress-fill" id="progressFill"></div>
         </div>
 
-        <div class="step-indicator">
-            <div class="step active" id="step1-indicator">1</div>
-            <div class="step" id="step2-indicator">2</div>
-            <div class="step" id="step3-indicator">3</div>
-            <div class="step" id="step4-indicator">4</div>
-        </div>
+        <ol class="step-indicator">
+            <li class="step active" id="step1-indicator" aria-current="step">1</li>
+            <li class="step" id="step2-indicator">2</li>
+            <li class="step" id="step3-indicator">3</li>
+            <li class="step" id="step4-indicator">4</li>
+        </ol>
 
         <!-- Step 1: Personal Information -->
         <div class="form-step active" id="step1">
@@ -319,9 +319,11 @@
             for (let i = 1; i <= totalSteps; i++) {
                 const indicator = document.getElementById(`step${i}-indicator`);
                 indicator.classList.remove('active', 'completed');
+                indicator.removeAttribute('aria-current');
                 
                 if (i === currentStep) {
                     indicator.classList.add('active');
+                    indicator.setAttribute('aria-current', 'step');
                 } else if (i < currentStep) {
                     indicator.classList.add('completed');
                 }
