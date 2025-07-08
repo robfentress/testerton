@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Step Form - WCAG 3.2.1 Violation</title>
+    <style>
+        :root {
+            --text-color: #000000;
+            --background-color: #ffffff;
+            --primary-color: #0056b3;
+            --primary-hover: #003d82;
+            --border-color: #cccccc;
+            --focus-color: #000000;
+            --error-color: #d32f2f;
+            --success-color: #4caf50;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background-color: var(--background-color);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+
+        .step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: 2px solid var(--border-color);
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .step.active {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            border-color: var(--primary-color);
+        }
+
+        .step.completed {
+            background-color: var(--success-color);
+            color: var(--background-color);
+            border-color: var(--success-color);
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            padding: 0.8rem;
+            font-size: 1rem;
+            width: 100%;
+            border: 2px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: 2px dashed var(--focus-color);
+            outline-offset: 2px;
+            border-color: var(--primary-color);
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+
+        button {
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            border: 2px solid var(--primary-color);
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+        }
+
+        button:focus {
+            outline: 2px dashed var(--focus-color);
+            outline-offset: 2px;
+        }
+
+        button:disabled {
+            background-color: var(--border-color);
+            border-color: var(--border-color);
+            cursor: not-allowed;
+        }
+
+        .back-button {
+            background-color: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .back-button:hover {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .summary {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .summary h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .summary-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-label {
+            font-weight: bold;
+        }
+
+        h1 {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .step-title {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Multi-Step Registration Form</h1>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="step-indicator">
+            <div class="step active" id="step1-indicator">1</div>
+            <div class="step" id="step2-indicator">2</div>
+            <div class="step" id="step3-indicator">3</div>
+            <div class="step" id="step4-indicator">4</div>
+        </div>
+
+        <!-- Step 1: Personal Information -->
+        <div class="form-step active" id="step1">
+            <h2 class="step-title">Personal Information</h2>
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="button-group">
+                <div></div>
+                <button type="button" id="next1" class="next-button">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Contact Information -->
+        <div class="form-step" id="step2">
+            <h2 class="step-title">Contact Information</h2>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div class="button-group">
+                <button type="button" id="back2" class="back-button">Back</button>
+                <button type="button" id="next2" class="next-button">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Preferences -->
+        <div class="form-step" id="step3">
+            <h2 class="step-title">Preferences</h2>
+            <div class="form-group">
+                <label for="newsletter">Newsletter Subscription:</label>
+                <select id="newsletter" name="newsletter" required>
+                    <option value="">Select an option</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="never">Never</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="interests">Areas of Interest:</label>
+                <textarea id="interests" name="interests" rows="3" placeholder="Tell us about your interests..."></textarea>
+            </div>
+            <div class="button-group">
+                <button type="button" id="back3" class="back-button">Back</button>
+                <button type="button" id="next3" class="next-button">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 4: Summary -->
+        <div class="form-step" id="step4">
+            <h2 class="step-title">Review Your Information</h2>
+            <div class="summary" id="summary">
+                <!-- Summary content will be populated by JavaScript -->
+            </div>
+            <div class="button-group">
+                <button type="button" id="back4" class="back-button">Back</button>
+                <button type="button" id="submit" class="submit-button">Submit Registration</button>
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        <div class="form-step" id="success">
+            <h2 class="step-title" style="color: var(--success-color);">Registration Complete!</h2>
+            <div class="success-message" style="font-size:1.3rem; color: var(--success-color); margin-bottom: 1.5rem; font-weight: bold; border: 2px solid var(--success-color); background: #e8f5e9; padding: 1rem; border-radius: 6px;" role="status" aria-live="polite">
+                <span aria-label="Success!">✅</span> Success! Your registration has been submitted.
+            </div>
+            <p>Thank you for completing the registration form. Your information has been submitted successfully.</p>
+            <button type="button" id="restart" onclick="location.reload()">Start Over</button>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 4;
+        const formData = {};
+
+        // Update progress bar
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        // Update step indicators
+        function updateStepIndicators() {
+            for (let i = 1; i <= totalSteps; i++) {
+                const indicator = document.getElementById(`step${i}-indicator`);
+                indicator.classList.remove('active', 'completed');
+                
+                if (i === currentStep) {
+                    indicator.classList.add('active');
+                } else if (i < currentStep) {
+                    indicator.classList.add('completed');
+                }
+            }
+        }
+
+        // Show step
+        function showStep(step) {
+            // Hide all steps
+            for (let i = 1; i <= totalSteps; i++) {
+                const stepElement = document.getElementById(`step${i}`);
+                if (stepElement) {
+                    stepElement.classList.remove('active');
+                }
+            }
+            // Also hide the success step
+            const successElement = document.getElementById('success');
+            if (successElement) {
+                successElement.classList.remove('active');
+            }
+
+            // Show current step
+            if (step === 'success') {
+                if (successElement) successElement.classList.add('active');
+            } else {
+                const currentStepElement = document.getElementById(`step${step}`);
+                if (currentStepElement) {
+                    currentStepElement.classList.add('active');
+                }
+            }
+            updateProgress();
+            updateStepIndicators();
+        }
+
+        // Collect form data from current step
+        function collectStepData(step) {
+            const stepElement = document.getElementById(`step${step}`);
+            const inputs = stepElement.querySelectorAll('input, select, textarea');
+            
+            inputs.forEach(input => {
+                if (input.name) {
+                    formData[input.name] = input.value;
+                }
+            });
+        }
+
+        // Populate summary
+        function populateSummary() {
+            const summary = document.getElementById('summary');
+            summary.innerHTML = `
+                <h3>Personal Information</h3>
+                <div class="summary-item">
+                    <span class="summary-label">Name:</span> ${formData.firstName || 'Not provided'} ${formData.lastName || ''}
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Email:</span> ${formData.email || 'Not provided'}
+                </div>
+                
+                <h3>Contact Information</h3>
+                <div class="summary-item">
+                    <span class="summary-label">Phone:</span> ${formData.phone || 'Not provided'}
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Address:</span> ${formData.address || 'Not provided'}
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">City:</span> ${formData.city || 'Not provided'}
+                </div>
+                
+                <h3>Preferences</h3>
+                <div class="summary-item">
+                    <span class="summary-label">Newsletter:</span> ${formData.newsletter || 'Not selected'}
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Interests:</span> ${formData.interests || 'None specified'}
+                </div>
+            `;
+        }
+
+        // WCAG 3.2.1 VIOLATION: Auto-submit on focus
+        function setupFocusViolation() {
+            const nextButtons = document.querySelectorAll('.next-button');
+            
+            nextButtons.forEach(button => {
+                button.addEventListener('focus', function() {
+                    // Automatically submit current step and advance to next
+                    setTimeout(() => {
+                        collectStepData(currentStep);
+                        currentStep++;
+                        
+                        if (currentStep <= totalSteps) {
+                            showStep(currentStep);
+                            // If we're going to the summary step, populate it
+                            if (currentStep === 4) {
+                                populateSummary();
+                            }
+                        } else {
+                            // Show success page
+                            showStep('success');
+                        }
+                    }, 100); // Small delay to make the violation more obvious
+                });
+            });
+        }
+
+        // Setup back buttons
+        function setupBackButtons() {
+            for (let i = 2; i <= totalSteps; i++) {
+                const backButton = document.getElementById(`back${i}`);
+                backButton.addEventListener('click', function() {
+                    currentStep--;
+                    showStep(currentStep);
+                });
+            }
+        }
+
+        // Setup submit button
+        function setupSubmitButton() {
+            const submitButton = document.getElementById('submit');
+            submitButton.addEventListener('click', function() {
+                currentStep++;
+                showStep('success');
+            });
+        }
+
+        // Initialize the form
+        function init() {
+            updateProgress();
+            updateStepIndicators();
+            setupFocusViolation(); // This creates the WCAG 3.2.1 violation
+            setupBackButtons();
+            setupSubmitButton();
+        }
+
+        // Start the application
+        init();
+    </script>
+</body>
+</html> 
