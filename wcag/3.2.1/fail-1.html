@@ -10,10 +10,10 @@
             --background-color: #ffffff;
             --primary-color: #0056b3;
             --primary-hover: #003d82;
-            --border-color: #cccccc;
+            --border-color: #757575;
             --focus-color: #000000;
             --error-color: #d32f2f;
-            --success-color: #4caf50;
+            --success-color: #39843C;
         }
 
         body {
@@ -153,16 +153,17 @@
 
         .progress-bar {
             width: 100%;
-            height: 8px;
-            background-color: var(--border-color);
-            border-radius: 4px;
+            height: 12px;
+            background: var(--border-color);
+            border-radius: 7px;
             margin-bottom: 2rem;
             overflow: hidden;
         }
 
         .progress-fill {
             height: 100%;
-            background-color: var(--primary-color);
+            background: var(--primary-color);
+            border-right: 2px solid #fff;
             transition: width 0.3s ease;
         }
 
@@ -198,15 +199,32 @@
             margin-bottom: 1rem;
             font-size: 1.5rem;
         }
+        .success-message {
+            font-size: 1.3rem;
+            color: var(--success-color);
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            border: 2px solid var(--success-color);
+            padding: 1rem; 
+            border-radius: 6px
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Multi-Step Registration Form</h1>
         
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
-        </div>
+        <div
+  class="progress-bar"
+  id="progressBar"
+  role="progressbar"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  aria-valuenow="0"
+  aria-label="Form completion progress"
+>
+  <div class="progress-fill" id="progressFill"></div>
+</div>
 
         <ol class="step-indicator">
             <li class="step active" id="step1-indicator" aria-current="step">1</li>
@@ -295,7 +313,7 @@
         <!-- Success Message -->
         <div class="form-step" id="success">
             <h2 class="step-title" style="color: var(--success-color);">Registration Complete!</h2>
-            <div class="success-message" style="font-size:1.3rem; color: var(--success-color); margin-bottom: 1.5rem; font-weight: bold; border: 2px solid var(--success-color); background: #e8f5e9; padding: 1rem; border-radius: 6px;" role="status" aria-live="polite">
+            <div class="success-message" role="status" aria-live="polite">
                 <span aria-label="Success!">✅</span> Success! Your registration has been submitted.
             </div>
             <p>Thank you for completing the registration form. Your information has been submitted successfully.</p>
@@ -312,6 +330,7 @@
         function updateProgress() {
             const progress = (currentStep / totalSteps) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressBar').setAttribute('aria-valuenow', progress);
         }
 
         // Update step indicators
