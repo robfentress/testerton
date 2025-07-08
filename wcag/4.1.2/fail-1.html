@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WCAG 4.1.2 Violation: Name, Role, Value</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    main {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      padding: 2rem;
+    }
+    .menu-label {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+    .menu-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1.2rem;
+      background: #1976d2;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      outline: none;
+      font-size: 1rem;
+      user-select: none;
+      -webkit-user-select: none;
+      margin-bottom: 0.5rem;
+    }
+    .menu-button:focus {
+      box-shadow: 0 0 0 2px #90caf9;
+    }
+    .menu-arrow {
+      margin-left: 0.5em;
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 3px;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    }
+    .menu-popup {
+      display: none;
+      position: absolute;
+      background: #fff;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      margin-top: 0.2rem;
+      min-width: 160px;
+      z-index: 10;
+    }
+    .menu-popup.open {
+      display: block;
+    }
+    .menu-item {
+      padding: 0.5rem 1.2rem;
+      cursor: pointer;
+      outline: none;
+      background: #fff;
+      color: #333;
+      border: none;
+      text-align: left;
+      width: 100%;
+      font-size: 1rem;
+    }
+    .menu-item:focus,
+    .menu-item.hover {
+      background: #b3d4fc;
+      color: #1976d2;
+    }
+    .content {
+      margin-top: 2.5rem;
+      color: #444;
+    }
+    .menu-container {
+      position: relative;
+      display: inline-block;
+    }
+    .last-action {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Company Dashboard</h1>
+  </header>
+  <main>
+    <div class="menu-label">Actions</div>
+    <div class="menu-container">
+      <div class="menu-button" id="menuButton" tabindex="0">
+        Actions <span class="menu-arrow"></span>
+      </div>
+      <div class="menu-popup" id="menuPopup">
+        <div class="menu-item" tabindex="-1">Action 1</div>
+        <div class="menu-item" tabindex="-1">Action 2</div>
+        <div class="menu-item" tabindex="-1">Action 3</div>
+        <div class="menu-item" tabindex="-1">Action 4</div>
+      </div>
+    </div>
+    <div class="last-action" id="lastAction">Last Action: None</div>
+    <div class="content">
+      <p>Welcome to your dashboard. Use the Actions menu above to perform quick tasks. This menu looks and behaves like a button menu, but is not accessible to assistive technologies because it lacks semantic roles, ARIA attributes, and state information.</p>
+    </div>
+  </main>
+  <script>
+    // Simple menu logic, no ARIA, no roles, just divs
+    const menuButton = document.getElementById('menuButton');
+    const menuPopup = document.getElementById('menuPopup');
+    const menuItems = Array.from(menuPopup.querySelectorAll('.menu-item'));
+    const lastAction = document.getElementById('lastAction');
+    let menuOpen = false;
+    let currentIndex = -1;
+
+    function openMenu() {
+      menuPopup.classList.add('open');
+      menuOpen = true;
+      currentIndex = 0;
+      menuItems[currentIndex].focus();
+    }
+    function closeMenu() {
+      menuPopup.classList.remove('open');
+      menuOpen = false;
+      currentIndex = -1;
+      menuButton.focus();
+    }
+    menuButton.addEventListener('click', () => {
+      if (menuOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+    menuButton.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        openMenu();
+      }
+    });
+    document.addEventListener('mousedown', (e) => {
+      if (!menuPopup.contains(e.target) && !menuButton.contains(e.target)) {
+        closeMenu();
+      }
+    });
+    menuPopup.addEventListener('keydown', (e) => {
+      if (!menuOpen) return;
+      if (e.key === 'Escape') {
+        closeMenu();
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        currentIndex = (currentIndex + 1) % menuItems.length;
+        menuItems[currentIndex].focus();
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
+        menuItems[currentIndex].focus();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        currentIndex = 0;
+        menuItems[currentIndex].focus();
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        currentIndex = menuItems.length - 1;
+        menuItems[currentIndex].focus();
+      } else if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        lastAction.textContent = 'Last Action: ' + menuItems[currentIndex].textContent;
+        closeMenu();
+      }
+    });
+    menuItems.forEach((item, idx) => {
+      item.addEventListener('click', () => {
+        lastAction.textContent = 'Last Action: ' + item.textContent;
+        closeMenu();
+      });
+      item.addEventListener('mouseover', () => {
+        item.classList.add('hover');
+      });
+      item.addEventListener('mouseout', () => {
+        item.classList.remove('hover');
+      });
+      item.addEventListener('focus', () => {
+        currentIndex = idx;
+      });
+    });
+  </script>
+</body>
+</html> 
