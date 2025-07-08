@@ -12,7 +12,7 @@
             --primary-hover: #003d82;
             --border-color: #757575;
             --focus-color: #000000;
-            --error-color: #d32f2f;
+            --error-color: #CE2C2C;
             --success-color: #39843C;
         }
 
@@ -87,10 +87,15 @@
 
         .form-group {
             margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group.has-error {
+            margin-bottom: 1.5rem;
         }
 
         label {
-            display: block;
+            display: inline-block;
             margin-bottom: 0.5rem;
             font-weight: bold;
             font-size: 1.1rem;
@@ -220,6 +225,54 @@
             padding: 1rem; 
             border-radius: 6px
         }
+
+        .error-message {
+            background-color: #ffebee;
+            color: var(--error-color);
+            padding: 1rem;
+            border: 2px solid var(--error-color);
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .field-error {
+            border-color: var(--error-color) !important;
+            border-width: 3px !important;
+            background-color: #ffebee;
+            position: relative;
+        }
+
+        .field-error:focus {
+            outline-color: var(--error-color) !important;
+        }
+
+        .field-error-label {
+            display: inline-block;
+            background-color: var(--error-color);
+            color: white;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 3px;
+            margin-left: 8px;
+        }
+
+
+
+        .error-list {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .error-list li {
+            margin-bottom: 0.25rem;
+        }
+
+        .required-asterisk {
+            color: var(--error-color);
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -251,15 +304,15 @@
         <div class="form-step active" id="step1">
             <h2 class="step-title">Personal Information</h2>
             <div class="form-group">
-                <label for="firstName">First Name:</label>
+                <label for="firstName">First Name: <span class="required-asterisk">*</span></label>
                 <input type="text" id="firstName" name="firstName" autocomplete="given-name" required>
             </div>
             <div class="form-group">
-                <label for="lastName">Last Name:</label>
+                <label for="lastName">Last Name: <span class="required-asterisk">*</span></label>
                 <input type="text" id="lastName" name="lastName" autocomplete="family-name" required>
             </div>
             <div class="form-group">
-                <label for="email">Email Address:</label>
+                <label for="email">Email Address: <span class="required-asterisk">*</span></label>
                 <input type="email" id="email" name="email" autocomplete="email" required>
             </div>
             <div class="button-group">
@@ -272,15 +325,15 @@
         <div class="form-step" id="step2">
             <h2 class="step-title">Contact Information</h2>
             <div class="form-group">
-                <label for="phone">Phone Number:</label>
+                <label for="phone">Phone Number: <span class="required-asterisk">*</span></label>
                 <input type="text" id="phone" name="phone" autocomplete="tel" required>
             </div>
             <div class="form-group">
-                <label for="address">Address:</label>
+                <label for="address">Address: <span class="required-asterisk">*</span></label>
                 <textarea id="address" name="address" rows="3" autocomplete="street-address" required></textarea>
             </div>
             <div class="form-group">
-                <label for="city">City:</label>
+                <label for="city">City: <span class="required-asterisk">*</span></label>
                 <input type="text" id="city" name="city" autocomplete="address-level2" required>
             </div>
             <div class="button-group">
@@ -293,7 +346,7 @@
         <div class="form-step" id="step3">
             <h2 class="step-title">Preferences</h2>
             <div class="form-group">
-                <label for="newsletter">Newsletter Subscription:</label>
+                <label for="newsletter">Newsletter Subscription: <span class="required-asterisk">*</span></label>
                 <select id="newsletter" name="newsletter" required>
                     <option value="">Select an option</option>
                     <option value="daily">Daily</option>
@@ -460,14 +513,110 @@
             `;
         }
 
+        // Validate required fields in current step
+        function validateCurrentStep() {
+            const stepElement = document.getElementById(`step${currentStep}`);
+            const requiredFields = stepElement.querySelectorAll('input[required], select[required], textarea[required]');
+            const errors = [];
+            const errorFields = [];
+
+            // Clear previous error styling
+            stepElement.querySelectorAll('.field-error').forEach(field => {
+                field.classList.remove('field-error');
+                const formGroup = field.closest('.form-group');
+                if (formGroup) {
+                    formGroup.classList.remove('has-error');
+                }
+                
+                // Remove error indicators
+                const existingLabel = field.parentNode.querySelector('.field-error-label');
+                if (existingLabel) {
+                    existingLabel.remove();
+                }
+            });
+
+            // Remove previous error message
+            const existingError = stepElement.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+
+            // Check each required field
+            requiredFields.forEach(field => {
+                const value = field.value.trim();
+                if (!value) {
+                    const fieldLabel = field.previousElementSibling;
+                    let labelText = '';
+                    if (fieldLabel && fieldLabel.tagName === 'LABEL') {
+                        // Remove asterisk and colon from label text
+                        labelText = fieldLabel.textContent.replace(/\s*\*\s*$/, '').replace(':', '').trim();
+                    } else {
+                        labelText = field.name || 'Field';
+                    }
+                    errors.push(labelText);
+                    errorFields.push(field);
+                    field.classList.add('field-error');
+                    
+                    // Add has-error class to form group for spacing
+                    const formGroup = field.closest('.form-group');
+                    if (formGroup) {
+                        formGroup.classList.add('has-error');
+                    }
+                    
+                    // Add error label after the label
+                    const errorLabel = document.createElement('div');
+                    errorLabel.className = 'field-error-label';
+                    errorLabel.textContent = '⚠ Required field';
+                    if (fieldLabel && fieldLabel.tagName === 'LABEL') {
+                        fieldLabel.parentNode.insertBefore(errorLabel, fieldLabel.nextSibling);
+                    }
+                    
+
+                }
+            });
+
+            // If there are errors, display them and return false
+            if (errors.length > 0) {
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'error-message';
+                errorMessage.setAttribute('role', 'alert');
+                errorMessage.setAttribute('aria-live', 'assertive');
+                
+                // Insert empty live region first
+                stepElement.insertBefore(errorMessage, stepElement.firstChild);
+                
+                // Add content to trigger screen reader announcement
+                errorMessage.innerHTML = `
+                    <strong>Please complete the following required fields:</strong>
+                    <ul class="error-list">
+                        ${errors.map(error => `<li>${error}</li>`).join('')}
+                    </ul>
+                `;
+                
+                // Focus on the first error field
+                if (errorFields.length > 0) {
+                    errorFields[0].focus();
+                }
+                
+                return false;
+            }
+
+            return true;
+        }
+
         // WCAG 3.2.1 VIOLATION: Auto-submit on focus
         function setupFocusViolation() {
             const nextButtons = document.querySelectorAll('.next-button');
             
             nextButtons.forEach(button => {
                 button.addEventListener('focus', function() {
-                    // Automatically submit current step and advance to next
+                    // Automatically submit current step and advance to next (WCAG 3.2.1 violation)
                     setTimeout(() => {
+                        // Validate current step before proceeding
+                        if (!validateCurrentStep()) {
+                            return; // Stop if validation fails
+                        }
+                        
                         collectStepData(currentStep);
                         currentStep++;
                         
@@ -486,12 +635,66 @@
             });
         }
 
+        // Add click event listeners for more reliable validation
+        function setupClickValidation() {
+            const nextButtons = document.querySelectorAll('.next-button');
+            
+            nextButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Validate current step before proceeding
+                    if (!validateCurrentStep()) {
+                        return; // Stop if validation fails
+                    }
+                    
+                    // Proceed to next step
+                    collectStepData(currentStep);
+                    currentStep++;
+                    
+                    if (currentStep <= totalSteps) {
+                        showStep(currentStep);
+                        // If we're going to the summary step, populate it
+                        if (currentStep === 4) {
+                            populateSummary();
+                        }
+                    } else {
+                        // Show success page
+                        showStep(5);
+                    }
+                });
+            });
+        }
+
         // Setup back buttons
         function setupBackButtons() {
             for (let i = 2; i <= totalSteps; i++) {
                 const backButton = document.getElementById(`back${i}`);
                 if (backButton) {
                     backButton.addEventListener('click', function() {
+                        // Clear any error messages from current step
+                        const currentStepElement = document.getElementById(`step${currentStep}`);
+                        if (currentStepElement) {
+                            const errorMessage = currentStepElement.querySelector('.error-message');
+                            if (errorMessage) {
+                                errorMessage.remove();
+                            }
+                            // Clear field error styling
+                            currentStepElement.querySelectorAll('.field-error').forEach(field => {
+                                field.classList.remove('field-error');
+                                const formGroup = field.closest('.form-group');
+                                if (formGroup) {
+                                    formGroup.classList.remove('has-error');
+                                }
+                                
+                                // Remove error indicators
+                                const errorLabel = field.parentNode.querySelector('.field-error-label');
+                                if (errorLabel) {
+                                    errorLabel.remove();
+                                }
+                            });
+                        }
+                        
                         currentStep--;
                         showStep(currentStep);
                     });
@@ -512,13 +715,54 @@
             });
         }
 
+        // Clear field errors when user starts typing
+        function setupFieldValidation() {
+            const allFields = document.querySelectorAll('input, select, textarea');
+            allFields.forEach(field => {
+                field.addEventListener('input', function() {
+                    if (this.classList.contains('field-error')) {
+                        this.classList.remove('field-error');
+                        
+                        // Remove has-error class from form group
+                        const formGroup = this.closest('.form-group');
+                        if (formGroup) {
+                            formGroup.classList.remove('has-error');
+                        }
+                        
+                        // Remove error indicators - look in the form group, not just parent node
+                        const fieldFormGroup = this.closest('.form-group');
+                        if (fieldFormGroup) {
+                            const errorLabel = fieldFormGroup.querySelector('.field-error-label');
+                            if (errorLabel) {
+                                errorLabel.remove();
+                            }
+                        }
+                        
+                        // Remove error message if all fields are now valid
+                        const stepElement = this.closest('.form-step');
+                        if (stepElement) {
+                            const remainingErrors = stepElement.querySelectorAll('.field-error');
+                            if (remainingErrors.length === 0) {
+                                const errorMessage = stepElement.querySelector('.error-message');
+                                if (errorMessage) {
+                                    errorMessage.remove();
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+        }
+
         // Initialize the form
         function init() {
             updateProgress();
             updateStepIndicators();
             setupFocusViolation(); // This creates the WCAG 3.2.1 violation
+            setupClickValidation(); // More reliable validation
             setupBackButtons();
             setupSubmitButton();
+            setupFieldValidation();
         }
 
         // Start the application
