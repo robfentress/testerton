@@ -65,6 +65,18 @@
             border-color: var(--success-color);
         }
 
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         .form-step {
             display: none;
         }
@@ -343,11 +355,22 @@
                 indicator.classList.remove('active', 'completed');
                 indicator.removeAttribute('aria-current');
                 
+                // Remove any existing completed span
+                const existingSpan = indicator.querySelector('.sr-only');
+                if (existingSpan) {
+                    existingSpan.remove();
+                }
+                
                 if (i === currentStep) {
                     indicator.classList.add('active');
                     indicator.setAttribute('aria-current', 'step');
                 } else if (i < currentStep) {
                     indicator.classList.add('completed');
+                    // Add visually hidden "(completed)" text
+                    const completedSpan = document.createElement('span');
+                    completedSpan.className = 'sr-only';
+                    completedSpan.textContent = '(completed)';
+                    indicator.appendChild(completedSpan);
                 }
             }
         }
