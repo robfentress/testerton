@@ -222,6 +222,7 @@
   aria-valuemax="100"
   aria-valuenow="0"
   aria-label="Form completion progress"
+  aria-valuetext="step 1"
 >
   <div class="progress-fill" id="progressFill"></div>
 </div>
@@ -231,6 +232,7 @@
             <li class="step" id="step2-indicator">2</li>
             <li class="step" id="step3-indicator">3</li>
             <li class="step" id="step4-indicator">4</li>
+            <li class="step" id="step5-indicator">5</li>
         </ol>
 
         <!-- Step 1: Personal Information -->
@@ -323,7 +325,7 @@
 
     <script>
         let currentStep = 1;
-        const totalSteps = 4;
+        const totalSteps = 5;
         const formData = {};
 
         // Update progress bar
@@ -331,6 +333,7 @@
             const progress = (currentStep / totalSteps) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
             document.getElementById('progressBar').setAttribute('aria-valuenow', progress);
+            document.getElementById('progressBar').setAttribute('aria-valuetext', 'step ' + currentStep);
         }
 
         // Update step indicators
@@ -365,7 +368,7 @@
             }
 
             // Show current step
-            if (step === 'success') {
+            if (step === 'success' || step === 5) {
                 if (successElement) successElement.classList.add('active');
             } else {
                 const currentStepElement = document.getElementById(`step${step}`);
@@ -441,7 +444,7 @@
                             }
                         } else {
                             // Show success page
-                            showStep('success');
+                            showStep(5);
                         }
                     }, 100); // Small delay to make the violation more obvious
                 });
@@ -452,19 +455,25 @@
         function setupBackButtons() {
             for (let i = 2; i <= totalSteps; i++) {
                 const backButton = document.getElementById(`back${i}`);
-                backButton.addEventListener('click', function() {
-                    currentStep--;
-                    showStep(currentStep);
-                });
+                if (backButton) {
+                    backButton.addEventListener('click', function() {
+                        currentStep--;
+                        showStep(currentStep);
+                    });
+                }
             }
         }
 
         // Setup submit button
         function setupSubmitButton() {
             const submitButton = document.getElementById('submit');
+            console.log('Setting up submit button:', submitButton);
             submitButton.addEventListener('click', function() {
-                currentStep++;
+                console.log('Submit button clicked!');
+                currentStep = 5;
+                console.log('Current step set to:', currentStep);
                 showStep('success');
+                console.log('showStep called');
             });
         }
 
