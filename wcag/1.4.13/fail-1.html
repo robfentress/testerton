@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Public Domain Images</title>
+    <style>
+      img {
+        padding: 0.5em;
+        border: 1px solid gray;
+        margin: 0.5em;
+      }
+      #desc {
+        width: 20em;
+        position: absolute;
+        pointer-events: none;
+        background: #fff;
+        border: 1px solid #888;
+        box-shadow: 2px 2px 8px #aaa;
+        display: none;
+        z-index: 1000;
+        padding: .5em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--
+      Sources: 
+      https://comicbookplus.com/?dlid=27464
+      https://freevintageillustrations.com/early-20th-century-mushroom-illustrations-2/
+    -->
+    <img
+      src="angelface.jpeg"
+      class="showable"
+      alt="Comic Book Cover For Angel Face (1957)"
+      aria-describedby="angelface"
+    />
+    <img
+      src="boletus-versipellis.jpeg"
+      class="showable"
+      alt="Scientific Illustration of Boletus Veripellis Mushroom"
+      aria-describedby="mushroom"
+    />
+    <div id="desc"></div>
+    <div id="angelface" hidden>
+      A comic strip is entitled Angel Face by Gene. The comic shows an outdoor
+      scene with a girl speaking to a boy who is standing beside her. They face
+      three boys and a girl. All are wearing coon-skin caps. The comic reads:
+      "Davy Harris &mdash; I'd like you to meet Day Gillespi, Davy Hawes, Davy
+      Gardner and Davy Morris"
+    </div>
+    <div id="mushroom" hidden>
+      A scientific illustration is entitled Figure 55. Boletus Veripellis. The
+      illustration shows a color drawing of a mushroom. It has a broadly convex
+      brick red cap and a stipe which is log and slender, white and covered with
+      small black scales.
+    </div>
+
+    <script>
+      let img = null;
+      let desc = document.getElementById("desc");
+
+      function onMouseMove(event) {
+        let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+
+        if (!elemBelow) return;
+
+        let imgBelow = elemBelow.closest(".showable");
+        if (img != imgBelow) {
+          if (img) {
+            hideDesc(img);
+          }
+          img = imgBelow;
+          if (img) {
+            showDesc(img);
+          }
+        }
+        // If hovering an image, move #desc to follow cursor
+        if (img) {
+          desc.style.left = event.pageX + 15 + "px";
+          desc.style.top = event.pageY + 15 + "px";
+        }
+      }
+
+      document.addEventListener("mousemove", onMouseMove);
+
+      function showDesc(elem) {
+        desc.innerHTML = document.getElementById(
+          elem.getAttribute("aria-describedby")
+        ).innerHTML;
+        desc.style.display = "block";
+      }
+
+      function hideDesc(elem) {
+        desc.innerHTML = "";
+        desc.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
