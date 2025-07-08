@@ -90,10 +90,10 @@
       document.addEventListener("click", (evt) => {
         if (evt.target.id == toggle.id) {
           if (content.hasAttribute("hidden")) {
-            toggle.setAttribute("aria-label", "collapsed");
+            toggle.setAttribute("aria-label", "expanded");
             content.removeAttribute("hidden");
           } else {
-            toggle.setAttribute("aria-label", "expanded");
+            toggle.setAttribute("aria-label", "collapsed");
             content.setAttribute("hidden", "hidden");
           }
         }
