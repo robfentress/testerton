@@ -4,11 +4,86 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hide Content</title>
+    <title>Hide Content - WCAG 2.5.3 Failure Example</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background: #f7f7fa;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background: #2a3a4a;
+        color: #fff;
+        padding: 1.5rem 2rem 1rem 2rem;
+        margin-bottom: 2rem;
+      }
+      main {
+        max-width: 600px;
+        margin: 2rem auto;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        padding: 2rem;
+      }
+      .desc {
+        color: #444;
+        margin-bottom: 2rem;
+      }
+      .toggle-section {
+        border: 1px solid #d0d0d0;
+        border-radius: 6px;
+        padding: 1.5rem 1rem;
+        background: #f9f9fc;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      #toggle {
+        font-size: 1rem;
+        padding: 0.5rem 1.2rem;
+        border-radius: 4px;
+        border: 1px solid #888;
+        background: #e9e9f3;
+        cursor: pointer;
+        margin-bottom: 1rem;
+      }
+      #content {
+        margin-top: 0.5rem;
+        color: #222;
+        background: #fff;
+        border-radius: 4px;
+        padding: 0.75rem 1rem;
+        border: 1px solid #e0e0e0;
+      }
+      .note {
+        margin-top: 2rem;
+        font-size: 0.95em;
+        color: #a33;
+        background: #fff3f3;
+        border-left: 4px solid #e33;
+        padding: 0.75rem 1rem;
+        border-radius: 4px;
+      }
+    </style>
   </head>
   <body>
-    <div><button id="toggle" aria-label="collapsed">Toggle</button></div>
-    <div id="content" hidden>content we're hding</div>
+    <header>
+      <h1>WCAG 2.5.3 Failure: Label in Name</h1>
+    </header>
+    <main>
+      <div class="desc">
+        <p><strong>Example of a failure of WCAG 2.5.3: Label in Name</strong></p>
+        <p>This page demonstrates a toggle button that does <em>not</em> meet the "Label in Name" requirement. The visible label is "Toggle", but the <code>aria-label</code> is set to "collapsed" or "expanded" instead of including the visible text.</p>
+      </div>
+      <section class="toggle-section">
+        <button id="toggle" aria-label="collapsed">Toggle</button>
+        <div id="content" hidden>content we're hding</div>
+      </section>
+      <div class="note">
+        <strong>Accessibility Issue:</strong> The button's accessible name (from <code>aria-label</code>) does not include the visible text "Toggle". This fails <a href="https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html" target="_blank" rel="noopener">WCAG 2.5.3 Label in Name</a>.
+      </div>
+    </main>
     <script>
       let toggle = document.getElementById("toggle");
       let content = document.getElementById("content");
